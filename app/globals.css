@@ -1129,13 +1129,11 @@ table td button:hover {
     font-size: 13px;
     padding: 10px;
   }
-
-  .form-group input,
-  .form-group select {
+ .form-group input,
+.form-group select {
     font-size: 13px;
     padding: 8px 10px;
-  }
-
+}
 /* Modal Overlay */
 .modal-overlay {
   position: fixed;
