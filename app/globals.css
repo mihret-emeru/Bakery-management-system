@@ -169,24 +169,7 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 480px) {
-  .login-card {
-    padding: 30px 25px;
-  }
 
-  .title {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
-  .demo-credentials {
-    padding: 12px;
-    font-size: 0.85rem;
-  }
-}
 
 /* Sidebar */
 .sidebar {
@@ -430,38 +413,10 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 1024px) {
-  .summary-cards,
-  .charts {
-    flex-direction: column;
-  }
-}
 
-/* Main content 
-.main {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
 
-.content {
-  padding: 20px;
-  overflow-y: auto;
-}*/
 
-/* Cards 
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: transform 0.2s;
-}
 
-.card:hover {
-  transform: scale(1.01);
-}*/
 
 /* Main content wrapper */
 .main-content {
@@ -647,17 +602,7 @@ h2 {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .filters {
-    flex-direction: column;
-    gap: 10px;
-  }
 
-  .order-table th,
-  .order-table td {
-    padding: 8px 10px;
-  }
-}
 
 .ocards {
   display: flex;
@@ -730,20 +675,7 @@ h2 {
   margin: 0;
 }
 
-/* Recent Payments Table Card 
-.pcard {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-}
 
-.pcard h2 {
-  margin-top: 0;
-  margin-bottom: 15px;
-  color: #666666;
-}*/
 
 /* Table styling */
 .payment-table {
@@ -783,48 +715,10 @@ h2 {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-  .filters {
-    flex-direction: column;
-    gap: 10px;
-  }
 
-  .pcards {
-    flex-direction: column;
-    gap: 15px;
-  }
 
-  .payment-table th,
-  .payment-table td {
-    padding: 8px 10px;
-  }
-}
 
-/* Customer Cards Row 
-.ccards {
-  display: flex;
-  gap: 20px; 
-  flex-wrap: wrap; 
-  margin-bottom: 30px; 
-  align-items: stretch;
-  min-height: 150px;
-}
 
-.ccard {
-  background-color: #ffffff;
-  flex: 1; 
-  min-width: 200px; 
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin-bottom: 30px;
-  display: flex; 
-  flex-direction: column;
-  height: 100%; 
-  box-sizing: border-box;
-  min-height: 150px;
-}*/
 
 /* Icon Box */
 .stat-icon {
@@ -874,12 +768,7 @@ h2 {
 }
 
 /* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .ccards {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
+
 
 /* Recent Customers Card */
 .customer-table {
@@ -914,19 +803,7 @@ h2 {
   background-color: #fff3e0;
 }
 
-/* Action Button 
-.customer-table button {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: #2196f3;
-  color: #fff;
-}
 
-.customer-table button:hover {
-  background-color: #1976d2;
-}*/
 
 .customer-table button {
   padding: 5px 10px;
@@ -955,12 +832,7 @@ h2 {
 }
 
 /* Responsive for smaller screens */
-@media (max-width: 768px) {
-  .customer-table th,
-  .customer-table td {
-    padding: 8px 10px;
-  }
-}
+
 
 .add-btn {
   padding: 8px 16px;
@@ -1078,17 +950,7 @@ h2 {
 .low-stock tr:last-child td {
   border-bottom: none;
 }
-@media (max-width: 900px) {
-  .summary-cards {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 
-@media (max-width: 600px) {
-  .summary-cards {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* Global Settings Page */
 .settings {
@@ -1118,17 +980,9 @@ h2 {
 }
 
 /* Responsive */
-@media screen and (max-width: 992px) {
-  .card-row section {
-    flex: 1 1 calc(50% - 20px); /* 2 cards per row on tablet */
-  }
-}
 
-@media screen and (max-width: 600px) {
-  .card-row section {
-    flex: 1 1 100%; /* 1 card per row on mobile */
-  }
-}
+
+
 
 .settings h1 {
   font-size: 32px;
@@ -1264,10 +1118,7 @@ table td button:hover {
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
-  .settings {
-    padding: 20px;
-  }
+
 
   .settings section {
     padding: 20px;
@@ -1366,20 +1217,7 @@ table td button:hover {
   }
 }
 
-/* Buttons 
-.btn {
-  background: var(--primary);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  transition: 0.2s;
-}
 
-.btn:hover {
-  background: var(--primary-light);
-}*/
 
 .input {
   width: 100%;
@@ -1411,8 +1249,87 @@ table td button:hover {
 }
 
 /* Responsive */
+/* Hide sidebar on mobile */
 @media (max-width: 768px) {
   .sidebar {
     display: none;
   }
+
+  .dashboard,
+  .analytics,
+  .main-content {
+    margin-left: 0; /* Remove left margin when sidebar is hidden */
+    padding: 10px; /* add some spacing */
+  }
 }
+/* Summary / Analytics / Order Cards */
+@media (max-width: 1024px) {
+  .summary-cards,
+  .analytics-cards,
+  .charts,
+  .pcards,
+  .ccards {
+    flex-direction: column; /* stack vertically */
+    grid-template-columns: 1fr !important; /* override grid if needed */
+    gap: 15px;
+  }
+}
+/* Make table scrollable on small screens */
+@media (max-width: 768px) {
+  .recent-orders,
+  .order-table,
+  .customer-table,
+  .payment-table,
+  .low-stock {
+    overflow-x: auto;
+  }
+
+  table th,
+  table td {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+}
+/* Modal size on mobile */
+@media (max-width: 768px) {
+  .modal-box,
+  .modal {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+/* Responsive font sizes */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p {
+    font-size: 14px;
+  }
+}
+/* Full width for buttons and inputs on mobile */
+@media (max-width: 768px) {
+  .btn,
+  .add-btn,
+  .add-btnn,
+  .add-item,
+  .restock-btn,
+  .signin-btn,
+  .back-btn,
+  .save-btn {
+    width: 100%;
+  }
+
+  .input-container input,
+  .form-group input,
+  .form-group select {
+    width: 100%;
+  }
+}
+
