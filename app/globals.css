@@ -1408,23 +1408,27 @@ table td button:hover {
   border-radius: 12px;
 }
 
-/* Responsive */
+/* Mobile layout */
 @media (max-width: 768px) {
   .sidebar {
-    display: none;
-  }
-}
-/* Hide sidebar on mobile */
-@media (max-width: 768px) {
-  .sidebar {
-    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background: #111;
+    z-index: 1000;
   }
 
+  .main-content,
   .dashboard,
-  .analytics,
-  .main-content {
-    margin-left: 0; /* Remove left margin when sidebar is hidden */
-    padding: 10px; /* add some spacing */
+  .analytics {
+    margin-left: 0;
+    padding-bottom: 70px; /* space for bottom sidebar */
   }
 }
 /* Summary / Analytics / Order Cards */
@@ -1434,9 +1438,9 @@ table td button:hover {
   .charts,
   .pcards,
   .ccards {
-    flex-direction: column; /* stack vertically */
-    grid-template-columns: 1fr !important; /* override grid if needed */
-    gap: 15px;
+      display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }
 /* Make table scrollable on small screens */
