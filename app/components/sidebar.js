@@ -16,7 +16,7 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-export default function Sidebar({ onLogout }) {
+export default function Sidebar({ onLogout, mobileOpen, closeMobile }) {
   const pathname = usePathname();
 
   /* Main content wrapper 
@@ -52,7 +52,8 @@ export default function Sidebar({ onLogout }) {
   ];
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${mobileOpen ? "open" : ""}`}>
+  <button className="sidebar-close" onClick={closeMobile}>✕</button>
       <div className="sidebar-header">
         <img src="/Bread.png" alt="Bakery Logo" className="sidebar-logo" />
         <div className="sidebar-title">
@@ -66,6 +67,7 @@ export default function Sidebar({ onLogout }) {
         <a
           key={item.path}
           href={item.path}
+onClick={closeMobile}
           className={pathname === item.path ? "active-link" : ""}
         >
           <span className="icon">{item.icon}</span>
