@@ -16,7 +16,7 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-export default function Sidebar({ onLogout, mobileOpen, closeMobile }) {
+export default function Sidebar({ onLogout}) {
   const pathname = usePathname();
 
   /* Main content wrapper 
