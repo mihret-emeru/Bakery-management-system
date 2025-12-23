@@ -1429,14 +1429,16 @@ table td button:hover {
     overflow-x: hidden; /* Important: hides anything that sticks out */
     display: flex;
     flex-direction: column;
-    align-items: center;
+  align-items: flex-start; /* Align items to the left */
+    padding: 10px;
+    border-right: 1px solid #eee;
   }
 
   /* Target the Nav Links */
   .sidebar a {
     width: 100%;
     display: flex;
-    justify-content: center;
+   justify-content: flex-start; /* Keep icons and text together */
     font-size: 2; /* 1. Collapses the text size to zero */
   }
 
@@ -1451,28 +1453,35 @@ table td button:hover {
   /* 3. Hide everything else inside the sidebar link */
  
 }
-  .main-content {
-  margin-left: 0px;
-  width: calc(100% - 130px);
-  min-width: 320px; /* Prevents the 'tiny column' look when zooming */
-  display: block;   /* Ensure it fills the space */
-  box-sizing: border-box;
-}
-/* Ensure the main wrapper doesn't restrict width */
-.app-container, .wrapper, body {
-  width: 100%;
-  max-width: 100vw;
-  margin: 0;
-  display: flex; /* Helps align sidebar and content side-by-side */
-}
-
-/* Force the dashboard to take up all available horizontal space */
-.dashboard-grid, .summary-cards, .analytics-cards {
+ .main-content {
+    margin-left: 130px !important; /* MATCH THE SIDEBAR WIDTH */
+    width: calc(100% - 130px);
+    padding: 15px;
+    display: block;
+    box-sizing: border-box;
+  }
+/* Force the dashboard to fill the screen starting from the sidebar */
+.dashboard-grid, 
+.summary-cards, 
+.analytics-cards, 
+.recent-orders {
   width: 100%;
   max-width: 100% !important; 
-  margin: 0 auto;
+  margin: 0; /* Changed from '0 auto' to '0' to remove gap */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Makes cards fill space better */
+  gap: 12px;
+}
+.recent-orders {
+  width: 100%;
+  overflow-x: auto; /* Allows scrolling on tiny screens */
+  margin-top: 20px;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
 .card {
   flex: 1 1 200px; /* Grows to fill space, but won't go smaller than 200px */
