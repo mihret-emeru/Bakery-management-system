@@ -52,8 +52,7 @@ export default function Sidebar({ onLogout, mobileOpen, closeMobile }) {
   ];
 
   return (
-    <div className={`sidebar ${mobileOpen ? "open" : ""}`}>
-  <button className="sidebar-close" onClick={closeMobile}>✕</button>
+    <div className="sidebar">
       <div className="sidebar-header">
         <img src="/Bread.png" alt="Bakery Logo" className="sidebar-logo" />
         <div className="sidebar-title">
@@ -67,7 +66,6 @@ export default function Sidebar({ onLogout, mobileOpen, closeMobile }) {
         <a
           key={item.path}
           href={item.path}
-onClick={closeMobile}
           className={pathname === item.path ? "active-link" : ""}
         >
           <span className="icon">{item.icon}</span>
