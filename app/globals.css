@@ -1411,24 +1411,45 @@ table td button:hover {
 }
 
 /* Mobile layout */
+/* =========================
+   MOBILE RESPONSIVE FIX
+   ========================= */
 @media (max-width: 768px) {
+  /* Sidebar: icons only */
   .sidebar {
-    width: 64px;              /* safe icon width */
-    padding: 12px 6px;
+    width: 64px;
+    padding: 10px 6px;
   }
 
+  /* Hide text, keep icons */
   .sidebar span,
-  .sidebar .text {
+  .sidebar .text,
+  .sidebar p,
+  .sidebar h2 {
     display: none;
   }
 
-  /* ONLY main-content controls layout */
+  /* Center icons */
+  .sidebar a,
+  .logout-btn {
+    justify-content: center;
+  }
+
+  /* Main content fits screen */
   .main-content {
     margin-left: 64px;
     width: calc(100% - 64px);
-    padding: 16px;
+    padding: 12px;
+    overflow-x: hidden;
+  }
+
+  /* Prevent zoom / overflow bug */
+  body,
+  html {
+    overflow-x: hidden;
   }
 }
+
 
 /* Summary / Analytics / Order Cards */
 @media (max-width: 1024px) {
@@ -1499,15 +1520,6 @@ table td button:hover {
   .form-group select {
     width: 100%;
   }
-}
-html, body {
-  width: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 
