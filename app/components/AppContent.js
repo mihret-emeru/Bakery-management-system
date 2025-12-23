@@ -50,6 +50,15 @@ export default function AppContent({ children }) {
 
   return (
     <div className="app-content">
+        {/* Mobile top bar */}
+      <div className="mobile-header">
+        <button onClick={() => setOpen(true)}>☰</button>
+        <span>Yama Bakery</span>
+      </div>
+
+      {/* Sidebar */}
+      <Sidebar mobileOpen={open} closeMobile={() => setOpen(false)} />
+
       <Sidebar onLogout={handleLogout} />
       <main className="main-content">{children}</main>
     </div>
