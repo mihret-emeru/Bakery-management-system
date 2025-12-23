@@ -1431,15 +1431,7 @@ table td button:hover {
     left: 0; /* slide in */
   }
   
-  .sidebar-close {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 22px;
-    color: white;
-    margin: 10px;
-    align-self: flex-end;
-  }
+ 
 
   .main-content {
     margin-left: 0;
