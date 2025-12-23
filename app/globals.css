@@ -1421,8 +1421,8 @@ table td button:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 70px !important; 
-    min-width: 70px !important; /* Prevents shrinking on zoom */
+    width: 130px !important; 
+    min-width: 130px !important; /* Prevents shrinking on zoom */
     height: 100vh;
     background: var(--primary);
     z-index: 1000;
@@ -1437,7 +1437,7 @@ table td button:hover {
     width: 100%;
     display: flex;
     justify-content: center;
-    font-size: 0; /* 1. Collapses the text size to zero */
+    font-size: 2; /* 1. Collapses the text size to zero */
   }
 
   /* 2. Bring back ONLY the icons */
@@ -1449,13 +1449,11 @@ table td button:hover {
   }
 
   /* 3. Hide everything else inside the sidebar link */
-  .sidebar a *:not(.icon) {
-    display: none !important;
-  }
+ 
 }
   .main-content {
-  margin-left: 70px;
-  width: calc(100% - 70px);
+  margin-left: 30px;
+  width: calc(100% - 30px);
   min-width: 320px; /* Prevents the 'tiny column' look when zooming */
   display: block;   /* Ensure it fills the space */
   box-sizing: border-box;
