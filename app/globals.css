@@ -1414,7 +1414,7 @@ table td button:hover {
 /* =========================
    MOBILE RESPONSIVE FIX
    ========================= */
-/* MOBILE FIRST FIX */
+/* MOBILE FIRST FIX 
 
 @media (max-width: 768px) {
   .sidebar {
@@ -1422,53 +1422,53 @@ table td button:hover {
     top: 0;
     left: 0;
     width: 130px !important; 
-    min-width: 130px !important; /* Prevents shrinking on zoom */
+    min-width: 130px !important; 
     height: 100vh;
     background: var(--primary);
     z-index: 1000;
-    overflow-x: hidden; /* Important: hides anything that sticks out */
+    overflow-x: hidden; 
     display: flex;
     flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
+  align-items: flex-start; 
     padding: 10px;
     border-right: 1px solid #eee;
   }
 
-  /* Target the Nav Links */
+
   .sidebar a {
     width: 100%;
     display: flex;
-   justify-content: flex-start; /* Keep icons and text together */
-    font-size: 2; /* 1. Collapses the text size to zero */
+   justify-content: flex-start; 
+    font-size: 2; 
   }
 
-  /* 2. Bring back ONLY the icons */
+  
   .sidebar a .icon, 
   .sidebar a i, 
   .sidebar a img {
-    font-size: 20px; /* Reset icon size */
+    font-size: 20px; 
     display: block !important;
   }
 
-  /* 3. Hide everything else inside the sidebar link */
+ 
  
 }
  .main-content {
-    margin-left: 130px !important; /* MATCH THE SIDEBAR WIDTH */
+    margin-left: 130px !important; 
     width: calc(100% - 130px);
     padding: 15px;
     display: block;
     box-sizing: border-box;
   }
-/* Ensure the main wrapper doesn't restrict width */
+
 .app-container, .wrapper, body {
   width: 100%;
   max-width: 100vw;
   margin: 0;
-  display: flex; /* Helps align sidebar and content side-by-side */
+  display: flex; 
 }
 
-/* Force the dashboard to take up all available horizontal space */
+
 .dashboard-grid, .summary-cards, .analytics-cards {
   width: 100%;
   max-width: 100% !important; 
@@ -1476,19 +1476,233 @@ table td button:hover {
 }
 
 .card {
-  flex: 1 1 200px; /* Grows to fill space, but won't go smaller than 200px */
+  flex: 1 1 200px; 
   min-width: 150px;
 }
+*/
 
 
+/* Base styles for all screens */
+.app-container, .wrapper, body {
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
+/* Main layout fix */
+.main-content {
+  flex: 1;
+  padding: 15px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
 
+/* Responsive adjustments for tablet/mobile */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 12px;
+  }
+  
+  .dashboard-grid, .summary-cards, .analytics-cards {
+    gap: 15px;
+  }
+}
+
+/* Mobile screens (≤768px) - Current issue fix */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100% !important; /* Full width on mobile */
+    height: auto !important; /* Auto height */
+    min-height: 60px; /* Minimum height for mobile menu */
+    background: var(--primary);
+    z-index: 1000;
+    overflow-x: auto; /* Allow horizontal scroll if needed */
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: row; /* Horizontal menu on mobile */
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Sidebar links - horizontal layout */
+  .sidebar a {
+    width: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    padding: 8px 10px;
+    margin-right: 5px;
+    text-align: center;
+  }
+  
+  /* Show icons and minimal text */
+  .sidebar a .icon, 
+  .sidebar a i, 
+  .sidebar a img {
+    font-size: 18px;
+    display: block !important;
+    margin-bottom: 2px;
+  }
+  
+  /* Hide text on very small screens, show only icons */
+  .sidebar a span:not(.icon) {
+    font-size: 10px;
+    line-height: 1.2;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Main content adjustment for mobile */
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: 60px !important; /* Push content below fixed sidebar */
+    width: 100% !important;
+    padding: 12px 10px;
+  }
+  
+  /* Dashboard grid adjustments */
+  .dashboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+  
+  /* Summary cards - stack vertically or 2x2 grid */
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+  
+  .summary-card {
+    min-height: 100px;
+    padding: 15px;
+  }
+  
+  /* Analytics section - stack vertically */
+  .analytics-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Weekly sales chart adjustments */
+  .weekly-sales-chart {
+    overflow-x: auto;
+  }
+  
+  .weekly-sales-chart canvas {
+    min-width: 400px; /* Allow horizontal scroll for chart */
+  }
+  
+  /* Recent orders table adjustments */
+  .recent-orders {
+    overflow-x: auto;
+  }
+  
+  .recent-orders table {
+    min-width: 600px; /* Allow horizontal scroll for table */
+    font-size: 14px;
+  }
+  
+  /* Adjust table columns for mobile */
+  .recent-orders th,
+  .recent-orders td {
+    padding: 8px 6px;
+  }
+  
+  /* Hide less important columns on very small screens */
+  @media (max-width: 480px) {
+    .recent-orders table {
+      min-width: 500px;
+    }
+    
+    /* You might want to hide some columns */
+    .recent-orders th:nth-child(4), /* Category column */
+    .recent-orders td:nth-child(4) {
+      display: none;
+    }
+  }
+}
+
+/* Extra small screens (≤480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    min-height: 55px;
+    padding: 6px 8px;
+  }
+  
+  .sidebar a {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+  
+  .sidebar a .icon {
+    font-size: 16px;
+  }
+  
+  .main-content {
+    margin-top: 55px !important;
+    padding: 10px 8px;
+  }
+  
+  .summary-cards {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+    gap: 10px;
+  }
+  
+  .summary-card {
+    min-height: 90px;
+    padding: 12px;
+  }
+  
+  .summary-card h3 {
+    font-size: 14px;
+  }
+  
+  .summary-card .value {
+    font-size: 22px;
+  }
+}
+
+/* For the "Welcome back" header and other text elements */
+.overview-header h1 {
+  font-size: clamp(20px, 4vw, 28px); /* Responsive font size */
+}
+
+/* Ensure no horizontal overflow */
+html, body {
+  overflow-x: hidden;
+  position: relative;
+}
   
 
 
 
 
 
+
+
+  
 
 /* Summary / Analytics / Order Cards */
 @media (max-width: 1024px) {
