@@ -1414,41 +1414,65 @@ table td button:hover {
 /* =========================
    MOBILE RESPONSIVE FIX
    ========================= */
+/* MOBILE FIRST FIX */
 @media (max-width: 768px) {
-  /* Sidebar becomes static, not fixed */
   .sidebar {
-    position: relative;
-    width: 64px;
-    height: auto;
-    padding: 10px 6px;
+    position: fixed;
+    top: 0;
+    left: -260px; /* hidden */
+    width: 240px;
+    height: 100vh;
+    background: var(--primary);
+    z-index: 9999;
+    transition: left 0.3s ease;
   }
 
-  /* Layout container controls spacing */
-  .app-content {
-    display: flex;
-    flex-direction: row;
-    width: 100vw;
-    overflow-x: hidden;
+  .sidebar.open {
+    left: 0; /* slide in */
+  }
+  
+  .sidebar-close {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: white;
+    margin: 10px;
+    align-self: flex-end;
   }
 
-  /* Hide labels */
-  .sidebar span,
-  .sidebar p,
-  .sidebar h2 {
-    display: none;
-  }
-
-  /* Main content fully visible */
   .main-content {
     margin-left: 0;
-    width: calc(100vw - 64px);
-    padding: 12px;
-    overflow-x: hidden;
+    width: 100%;
+    padding: 16px;
   }
 
-  html,
-  body {
+  .app-content {
     overflow-x: hidden;
+  }
+}
+
+/* hide close button on desktop */
+.sidebar-close {
+  display: none;
+}
+
+  
+.mobile-header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 }
 
