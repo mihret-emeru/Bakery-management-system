@@ -1482,102 +1482,124 @@ table td button:hover {
 */
 
 
-/* Base styles for all screens */
-.app-container, .wrapper, body {
-  width: 100%;
-  max-width: 100vw;
-  margin: 0;
-  padding: 0;
+/* Base styles - for desktop/large screens */
+.app-container {
   display: flex;
+  width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
-/* Main layout fix */
+.sidebar {
+  width: 250px; /* Fixed width for desktop */
+  min-width: 250px;
+  background: var(--primary);
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  border-right: 1px solid #eee;
+}
+
 .main-content {
   flex: 1;
-  padding: 15px;
+  margin-left: 250px; /* Match sidebar width */
+  padding: 20px;
+  width: calc(100% - 250px);
   box-sizing: border-box;
   min-height: 100vh;
 }
 
-/* Responsive adjustments for tablet/mobile */
-@media (max-width: 1024px) {
-  .main-content {
-    padding: 12px;
+/* Ensure full width for dashboard components */
+.dashboard-grid, .summary-cards, .analytics-cards {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Tablet adjustments (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .sidebar {
+    width: 200px;
+    min-width: 200px;
   }
   
-  .dashboard-grid, .summary-cards, .analytics-cards {
+  .main-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    padding: 15px;
+  }
+  
+  /* Adjust dashboard layout for tablet */
+  .summary-cards {
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 }
 
-/* Mobile screens (≤768px) - Current issue fix */
+/* Mobile adjustments (≤768px) - KEEP SIDEBAR ON SIDE */
 @media (max-width: 768px) {
   .app-container {
-    flex-direction: column;
+    display: flex;
+    flex-direction: row; /* Keep sidebar and content side by side */
   }
   
   .sidebar {
+    width: 60px !important; /* Very narrow sidebar on mobile */
+    min-width: 60px !important;
+    height: 100vh;
     position: fixed;
-    top: 0;
     left: 0;
-    width: 100% !important; /* Full width on mobile */
-    height: auto !important; /* Auto height */
-    min-height: 60px; /* Minimum height for mobile menu */
-    background: var(--primary);
-    z-index: 1000;
-    overflow-x: auto; /* Allow horizontal scroll if needed */
-    overflow-y: hidden;
-    display: flex;
-    flex-direction: row; /* Horizontal menu on mobile */
-    align-items: center;
-    justify-content: flex-start;
-    padding: 8px 10px;
-    border-bottom: 1px solid #eee;
+    top: 0;
+    padding: 10px 0;
+    align-items: center; /* Center icons */
   }
   
-  /* Sidebar links - horizontal layout */
+  /* Hide text, show only icons */
   .sidebar a {
-    width: auto !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 11px;
-    padding: 8px 10px;
-    margin-right: 5px;
+    padding: 12px 0;
+    width: 100%;
     text-align: center;
   }
   
-  /* Show icons and minimal text */
+  .sidebar a span:not(.icon) {
+    display: none; /* Hide text on mobile */
+  }
+  
   .sidebar a .icon, 
   .sidebar a i, 
   .sidebar a img {
-    font-size: 18px;
-    display: block !important;
-    margin-bottom: 2px;
+    font-size: 20px;
+    margin-bottom: 4px;
   }
   
-  /* Hide text on very small screens, show only icons */
-  .sidebar a span:not(.icon) {
-    font-size: 10px;
-    line-height: 1.2;
-    max-width: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  .sidebar a .tooltip {
+    display: none; /* Hide any tooltips if present */
   }
   
-  /* Main content adjustment for mobile */
   .main-content {
-    margin-left: 0 !important;
-    margin-top: 60px !important; /* Push content below fixed sidebar */
-    width: 100% !important;
-    padding: 12px 10px;
+    margin-left: 60px !important; /* Match reduced sidebar width */
+    width: calc(100% - 60px) !important;
+    padding: 15px 10px;
+    min-width: 0; /* Allow content to shrink */
   }
   
-  /* Dashboard grid adjustments */
+  /* Fix for white space - force content to take full available width */
+  .main-content > div {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Dashboard grid adjustments for mobile */
   .dashboard-grid {
     display: flex;
     flex-direction: column;
@@ -1585,7 +1607,7 @@ table td button:hover {
     width: 100%;
   }
   
-  /* Summary cards - stack vertically or 2x2 grid */
+  /* Summary cards - 2 per row on mobile */
   .summary-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1598,75 +1620,52 @@ table td button:hover {
     padding: 15px;
   }
   
-  /* Analytics section - stack vertically */
-  .analytics-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  /* Weekly sales chart adjustments */
-  .weekly-sales-chart {
-    overflow-x: auto;
-  }
-  
-  .weekly-sales-chart canvas {
-    min-width: 400px; /* Allow horizontal scroll for chart */
-  }
-  
-  /* Recent orders table adjustments */
+  /* Ensure charts and tables are scrollable if needed */
+  .weekly-sales-chart,
   .recent-orders {
     overflow-x: auto;
   }
   
+  .weekly-sales-chart canvas {
+    min-width: 400px;
+  }
+  
   .recent-orders table {
-    min-width: 600px; /* Allow horizontal scroll for table */
+    min-width: 600px;
     font-size: 14px;
   }
   
-  /* Adjust table columns for mobile */
-  .recent-orders th,
-  .recent-orders td {
-    padding: 8px 6px;
-  }
-  
-  /* Hide less important columns on very small screens */
-  @media (max-width: 480px) {
-    .recent-orders table {
-      min-width: 500px;
-    }
-    
-    /* You might want to hide some columns */
-    .recent-orders th:nth-child(4), /* Category column */
-    .recent-orders td:nth-child(4) {
-      display: none;
-    }
+  /* Adjust font sizes for mobile */
+  h1, h2, h3 {
+    font-size: clamp(16px, 4vw, 24px);
   }
 }
 
 /* Extra small screens (≤480px) */
 @media (max-width: 480px) {
   .sidebar {
-    min-height: 55px;
-    padding: 6px 8px;
+    width: 50px !important;
+    min-width: 50px !important;
+    padding: 8px 0;
   }
   
   .sidebar a {
-    padding: 6px 8px;
-    font-size: 10px;
+    padding: 10px 0;
   }
   
   .sidebar a .icon {
-    font-size: 16px;
+    font-size: 18px;
   }
   
   .main-content {
-    margin-top: 55px !important;
-    padding: 10px 8px;
+    margin-left: 50px !important;
+    width: calc(100% - 50px) !important;
+    padding: 12px 8px;
   }
   
+  /* Stack summary cards in single column on very small screens */
   .summary-cards {
-    grid-template-columns: 1fr; /* Single column on very small screens */
+    grid-template-columns: 1fr;
     gap: 10px;
   }
   
@@ -1675,33 +1674,79 @@ table td button:hover {
     padding: 12px;
   }
   
-  .summary-card h3 {
-    font-size: 14px;
-  }
-  
   .summary-card .value {
     font-size: 22px;
   }
+  
+  /* Hide some table columns on very small screens to save space */
+  @media (max-width: 360px) {
+    .recent-orders th:nth-child(3), /* Undertype column */
+    .recent-orders td:nth-child(3) {
+      display: none;
+    }
+  }
 }
 
-/* For the "Welcome back" header and other text elements */
-.overview-header h1 {
-  font-size: clamp(20px, 4vw, 28px); /* Responsive font size */
+/* FIX FOR WHITE SPACE ISSUE */
+/* Remove any max-width constraints that might be causing white space */
+.container, 
+.dashboard-container, 
+.content-wrapper,
+.main-content > div > div {
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 /* Ensure no horizontal overflow */
-html, body {
+body {
   overflow-x: hidden;
+  width: 100vw;
+}
+
+/* Force all flex children to fill available space */
+.main-content .flex,
+.main-content .grid,
+.main-content .row {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* If there's a specific element causing white space, target it */
+.main-content > .container,
+.main-content > .wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+/* Add this if you still have white space issues */
+* {
+  box-sizing: border-box;
+}
+
+/* Reset any margins/paddings that might cause space */
+body, html, #root, .app {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Specifically target the area between sidebar and content */
+.app-container::after {
+  display: none;
+}
+
+/* If there's a gap between sidebar and content, remove it */
+.sidebar + .main-content {
+  margin-left: 0; /* Overridden by more specific rule above */
+}
+
+/* Make sure content area starts exactly at sidebar end */
+.main-content {
   position: relative;
+  left: 0;
 }
   
-
-
-
-
-
-
-
   
 
 /* Summary / Analytics / Order Cards */
