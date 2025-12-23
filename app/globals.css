@@ -1452,8 +1452,8 @@ table td button:hover {
  
 }
   .main-content {
-  margin-left: 30px;
-  width: calc(100% - 30px);
+  margin-left: 5px;
+  width: calc(100% - 5px);
   min-width: 320px; /* Prevents the 'tiny column' look when zooming */
   display: block;   /* Ensure it fills the space */
   box-sizing: border-box;
