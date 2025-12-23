@@ -465,7 +465,7 @@ body {
 
 /* Main content wrapper */
 .main-content {
-  margin-left: 240px;            /* match desktop sidebar */
+ 
   padding: 20px 40px;
   background-color: #fff;
   min-height: 100vh;
