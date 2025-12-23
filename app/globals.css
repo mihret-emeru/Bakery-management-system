@@ -465,9 +465,11 @@ body {
 
 /* Main content wrapper */
 .main-content {
+  margin-left: 240px;            /* match desktop sidebar */
   padding: 20px 40px;
-  background-color: #ffff;
+  background-color: #fff;
   min-height: 100vh;
+  width: calc(100% - 240px);
 }
 
 .pro {
@@ -1411,21 +1413,23 @@ table td button:hover {
 /* Mobile layout */
 @media (max-width: 768px) {
   .sidebar {
-    width: 60px;              /* icons only */
-    padding: 10px 5px;
+    width: 64px;              /* safe icon width */
+    padding: 12px 6px;
   }
 
   .sidebar span,
   .sidebar .text {
-    display: none;            /* hide labels */
+    display: none;
   }
 
-  .main-content,
-  .dashboard,
-  .analytics {
-    margin-left: 60px;        /* match sidebar width */
+  /* ONLY main-content controls layout */
+  .main-content {
+    margin-left: 64px;
+    width: calc(100% - 64px);
+    padding: 16px;
   }
 }
+
 /* Summary / Analytics / Order Cards */
 @media (max-width: 1024px) {
   .summary-cards,
@@ -1496,15 +1500,14 @@ table td button:hover {
     width: 100%;
   }
 }
-  * {
+html, body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+* {
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
 
