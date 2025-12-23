@@ -1444,10 +1444,7 @@ table td button:hover {
   }
 }
 
-/* hide close button on desktop */
-.sidebar-close {
-  display: none;
-}
+
 
   
 .mobile-header {
