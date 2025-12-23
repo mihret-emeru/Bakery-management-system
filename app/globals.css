@@ -1415,40 +1415,43 @@ table td button:hover {
    MOBILE RESPONSIVE FIX
    ========================= */
 @media (max-width: 768px) {
-  /* Sidebar: icons only */
+  /* Sidebar becomes static, not fixed */
   .sidebar {
+    position: relative;
     width: 64px;
+    height: auto;
     padding: 10px 6px;
   }
 
-  /* Hide text, keep icons */
+  /* Layout container controls spacing */
+  .app-content {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Hide labels */
   .sidebar span,
-  .sidebar .text,
   .sidebar p,
   .sidebar h2 {
     display: none;
   }
 
-  /* Center icons */
-  .sidebar a,
-  .logout-btn {
-    justify-content: center;
-  }
-
-  /* Main content fits screen */
+  /* Main content fully visible */
   .main-content {
-    margin-left: 64px;
-    width: calc(100% - 64px);
+    margin-left: 0;
+    width: calc(100vw - 64px);
     padding: 12px;
     overflow-x: hidden;
   }
 
-  /* Prevent zoom / overflow bug */
-  body,
-  html {
+  html,
+  body {
     overflow-x: hidden;
   }
 }
+
 
 
 /* Summary / Analytics / Order Cards */
