@@ -1419,24 +1419,36 @@ table td button:hover {
   .sidebar {
     position: fixed;
     top: 0;
-    left: -260px; /* hidden */
-    width: 240px;
+    left: 0;              /*  ALWAYS VISIBLE */
+    width: 70px;          /* compact sidebar */
     height: 100vh;
     background: var(--primary);
-    z-index: 9999;
-    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 12px 6px;
+    box-sizing: border-box;
   }
 
-  .sidebar.open {
-    left: 0; /* slide in */
+  /* hide text, keep icons */
+  .sidebar .sidebar-title,
+  .sidebar p,
+  .sidebar span:not(.icon) {
+    display: none;
   }
-  
- 
+
+  .sidebar a {
+    justify-content: center;
+    padding: 12px 0;
+  }
+
+  .sidebar .icon {
+    font-size: 20px;
+  }
 
   .main-content {
-    margin-left: 0;
-    width: 100%;
+    margin-left: 70px;    /* match sidebar width */
+    width: calc(100% - 70px);
     padding: 16px;
+    min-height: 100vh;
   }
 
   .app-content {
@@ -1446,24 +1458,11 @@ table td button:hover {
 
 
 
-  
-.mobile-header {
-  display: none;
-}
 
-@media (max-width: 768px) {
-  .mobile-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
-}
+  
+
+
+
 
 
 
