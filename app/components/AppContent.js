@@ -59,7 +59,9 @@ export default function AppContent({ children }) {
       {/* Sidebar */}
       <Sidebar mobileOpen={open} closeMobile={() => setOpen(false)} />
 
-      <Sidebar onLogout={handleLogout} />
+      <Sidebar onLogout={handleLogout}
+   mobileOpen={open}
+  closeMobile={() => setOpen(false)}/>
       <main className="main-content">{children}</main>
     </div>
   );
