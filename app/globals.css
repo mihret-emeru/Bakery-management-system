@@ -1752,10 +1752,10 @@ table td button:hover {
   
   /* Action button fits in equal column */
   .recent-orders td button {
-    padding: 3px 6px !important;
-    font-size: 9px !important;
+    padding: 3px 3px !important;
+    font-size: 3px !important;
     width: 100% !important; /* Fill the cell */
-    max-width: 70px !important; /* But limit size */
+    max-width: 40px !important; /* But limit size */
     margin: 0 auto;
     display: block;
   }
