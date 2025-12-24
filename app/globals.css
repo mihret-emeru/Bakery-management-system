@@ -1622,10 +1622,23 @@ table td button:hover {
   }
   
   /* Ensure charts and tables are scrollable if needed */
+  .dashboard-grid {
+display: grid !important;
+grid-template-columns: 1fr !important;
+gap: 20px;
+}
+
+.weekly-sales-section {
+grid-column: 1 / -1;
+width: 100%;
+}
+
+.weekly-sales-chart {
+width: 100% !important;
+}
+  
   
   .weekly-sales-chart {
-     display: grid !important;
-    grid-template-columns: 1fr !important; /* Single column layout */
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: visible !important; /* Change from auto to visible */
