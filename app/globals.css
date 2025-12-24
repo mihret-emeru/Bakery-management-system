@@ -1664,21 +1664,49 @@ table td button:hover {
     padding: 12px 8px;
   }
   
-  /* Stack summary cards in single column on very small screens */
+  /* 3. SUMMARY CARDS - Shorter height, wider layout */
   .summary-cards {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    padding: 0 !important;
   }
   
   .summary-card {
-    min-height: 90px;
-    padding: 12px;
+    min-height: 85px !important;
+    height: 85px !important;
+    padding: 15px 12px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background: white;
+  }
+  
+  .summary-card h3 {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #666;
+    font-weight: 500;
   }
   
   .summary-card .value {
-    font-size: 22px;
+    font-size: 24px !important;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
   }
-  
   /* Hide some table columns on very small screens to save space */
   @media (max-width: 360px) {
     .recent-orders th:nth-child(3), /* Undertype column */
