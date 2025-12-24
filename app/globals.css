@@ -1665,6 +1665,7 @@ table td button:hover {
 
   
   /* Universal responsive table wrapper */
+/* ===== DESKTOP: Keep normal table layout ===== */
 .table-wrapper,
 .recent-orders,
 .order-table,
@@ -1672,21 +1673,104 @@ table td button:hover {
 .payment-table,
 .low-stock {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 
-/* Table itself */
 table {
   width: 100%;
   border-collapse: collapse;
 }
 
-/* Prevent columns from breaking */
-th, td {
-  white-space: nowrap;
+/* ===== MOBILE: Transform tables to card layout ===== */
+@media (max-width: 768px) {
+  /* Remove horizontal scrolling for tables */
+  .table-wrapper,
+  .recent-orders,
+  .order-table,
+  .customer-table,
+  .payment-table,
+  .low-stock {
+    overflow-x: visible !important; /* Remove scrolling */
+    width: 100% !important;
+    max-width: 100% !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+  
+  /* Transform table to block layout */
+  table {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  thead {
+    display: none !important; /* Hide header on mobile */
+  }
+  
+  tbody {
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  tr {
+    display: block !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    padding: 15px !important;
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background: white !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05) !important;
+  }
+  
+  td {
+    display: block !important;
+    width: 100% !important;
+    padding: 10px 0 !important;
+    text-align: left !important;
+    border: none !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    white-space: normal !important; /* Allow text to wrap */
+    word-wrap: break-word !important;
+  }
+  
+  /* Remove bottom border from last td in each row */
+  tr td:last-child {
+    border-bottom: none !important;
+  }
+  
+  /* Add label before each td (like "Order ID:") */
+  td::before {
+    content: attr(data-label) !important;
+    display: inline-block !important;
+    width: 120px !important;
+    font-weight: 600 !important;
+    color: #555 !important;
+    margin-right: 10px !important;
+  }
+  
+  /* Optional: Make action buttons full width */
+  td:last-child {
+    text-align: center !important;
+  }
+  
+  td:last-child button {
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 0 auto !important;
+  }
 }
 
+/* ===== Very small screens (≤480px) ===== */
+@media (max-width: 480px) {
+  td::before {
+    width: 100px !important;
+    font-size: 14px !important;
+  }
+  
+  td {
+    font-size: 14px !important;
+  }
+}
   
   /* Adjust font sizes for mobile */
   h1, h2, h3 {
