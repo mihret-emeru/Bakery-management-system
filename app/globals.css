@@ -1675,8 +1675,8 @@ table td button:hover {
   }
   
   .summary-card {
-    min-height: 85px !important;
-    height: 85px !important;
+    min-height: 55px !important;
+    height: 55px !important;
     padding: 15px 12px !important;
     display: flex;
     flex-direction: column;
