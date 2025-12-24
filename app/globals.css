@@ -1622,9 +1622,10 @@ table td button:hover {
   }
   
   /* Ensure charts and tables are scrollable if needed */
-  @media (max-width: 768px) {
-  /* Weekly Sales Chart - Full width, no horizontal scroll */
+  
   .weekly-sales-chart {
+     display: grid !important;
+    grid-template-columns: 1fr !important; /* Single column layout */
     width: 100% !important;
     max-width: 100% !important;
     overflow-x: visible !important; /* Change from auto to visible */
