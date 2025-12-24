@@ -1985,5 +1985,40 @@ body, html, #root, .app {
     width: 100%;
   }
 }
+/* ===============================
+   FIX ONLY PAYMENT & CUSTOMER
+   =============================== */
+
+@media (max-width: 768px) {
+
+  /* Payment page */
+  .payment,
+  .payment-page,
+  .payment-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Customer page */
+  .customer,
+  .customers,
+  .customer-page,
+  .customer-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Force their inner content to stretch */
+  .payment * ,
+  .customers * {
+    max-width: 100%;
+  }
+}
 
 
