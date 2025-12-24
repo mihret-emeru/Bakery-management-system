@@ -1664,10 +1664,29 @@ table td button:hover {
 
 
   
-  .recent-orders table {
-    min-width: 600px;
-    font-size: 14px;
-  }
+  /* Universal responsive table wrapper */
+.table-wrapper,
+.recent-orders,
+.order-table,
+.customer-table,
+.payment-table,
+.low-stock {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table itself */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Prevent columns from breaking */
+th, td {
+  white-space: nowrap;
+}
+
   
   /* Adjust font sizes for mobile */
   h1, h2, h3 {
