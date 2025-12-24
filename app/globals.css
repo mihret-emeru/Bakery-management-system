@@ -1619,69 +1619,50 @@ table td button:hover {
   .summary-card {
     min-height: 100px;
     padding: 15px;
+  }   
+}
+/* Fix for your current structure without changing React */
+@media (max-width: 768px) {
+  /* Make charts container a single column */
+  .charts {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
   }
   
-  /* Ensure charts and tables are scrollable if needed */
-  .dashboard-grid {
-display: grid !important;
-grid-template-columns: 1fr !important;
-gap: 20px;
-}
-
-.weekly-sales-section {
-grid-column: 1 / -1;
-width: 100%;
-}
-
-.weekly-sales-chart {
-width: 100% !important;
-}
-  
-  
-  .weekly-sales-chart {
+  /* Each chart container takes full width */
+  .chart-container {
     width: 100% !important;
     max-width: 100% !important;
-    overflow-x: visible !important; /* Change from auto to visible */
-    overflow-y: visible !important;
-    margin: 0 auto 20px !important;
-    padding: 0 !important;
-  }
-  
-  .weekly-sales-chart canvas {
-    min-width: 100% !important; /* Change from 400px to 100% */
-    max-width: 100% !important;
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 16/9 !important; /* Maintain chart proportions */
+    min-width: 100% !important;
+    margin-bottom: 20px !important;
+    float: none !important;
+    clear: both !important;
     display: block !important;
   }
   
-  /* Container for the chart section */
-  .weekly-sales-section,
-  .chart-container,
-  .analytics-section {
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: hidden !important;
-    padding: 15px !important;
-    margin-bottom: 20px !important;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Remove any grid/flex child properties */
+  .chart-container:first-child,
+  .chart-container:last-child {
+    flex: 1 1 100% !important;
   }
   
-  /* Ensure chart title/heading doesn't break layout */
-  .weekly-sales-section h2,
-  .chart-title {
-    font-size: 18px !important;
-    margin-bottom: 15px !important;
-    padding: 0 5px !important;
+  /* Fix the canvas inside */
+  .chart-container canvas {
     width: 100% !important;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    height: 250px !important;
+    min-width: 100% !important;
   }
-}
+  
+  /* Make sure h3 doesn't break layout */
+  .chart-container h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+
+
   
   .recent-orders table {
     min-width: 600px;
