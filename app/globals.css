@@ -1676,7 +1676,7 @@ table td button:hover {
   table {
     width: 100% !important;
     table-layout: fixed !important;
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
   
   /* Optimized column distribution - action gets minimal space */
@@ -1705,13 +1705,13 @@ table td button:hover {
   
   /* Ultra-compact button */
   td button {
-    padding: 2px 4px !important; /* Minimal padding */
-    font-size: 9px !important; /* Very small text */
-    min-height: 20px !important;
+    padding: 1px 3px !important; /* Minimal padding */
+    font-size: 8px !important; /* Very small text */
+    min-height: 16px !important;
     line-height: 1 !important;
     width: auto !important;
-    min-width: 40px !important; /* Very narrow */
-    max-width: 50px !important;
+    min-width: 32px !important; /* Very narrow */
+    max-width: 40px !important;
     display: inline-block;
     margin: 0 auto;
     white-space: nowrap;
