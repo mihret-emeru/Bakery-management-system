@@ -1891,7 +1891,7 @@ body, html, #root, .app {
     gap: 12px;
   }
 }
-/* Make table scrollable on small screens */
+/* Make table scrollable on small screens 
 @media (max-width: 768px) {
   .recent-orders,
   .order-table,
@@ -1906,7 +1906,7 @@ body, html, #root, .app {
     padding: 8px 10px;
     font-size: 13px;
   }
-}
+}*/
 /* Modal size on mobile */
 @media (max-width: 768px) {
   .modal-box,
