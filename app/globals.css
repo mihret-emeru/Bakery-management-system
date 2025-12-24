@@ -1930,5 +1930,40 @@ body, html, #root, .app {
     width: 100%;
   }
 }
+/* === FORCE ALL PAGES TO MATCH DASHBOARD WIDTH === */
+@media (max-width: 768px) {
+  .main-content > * {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* Kill common page wrappers */
+  .container,
+  .page,
+  .page-container,
+  .content,
+  .content-wrapper,
+  .dashboard-container,
+  .orders-container,
+  .customers-container,
+  .products-container,
+  .inventory-container,
+  .analytics-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .app-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+}
 
 
