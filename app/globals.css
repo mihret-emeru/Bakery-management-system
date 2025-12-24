@@ -1622,14 +1622,52 @@ table td button:hover {
   }
   
   /* Ensure charts and tables are scrollable if needed */
-  .weekly-sales-chart,
-  .recent-orders {
-    overflow-x: auto;
+  @media (max-width: 768px) {
+  /* Weekly Sales Chart - Full width, no horizontal scroll */
+  .weekly-sales-chart {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: visible !important; /* Change from auto to visible */
+    overflow-y: visible !important;
+    margin: 0 auto 20px !important;
+    padding: 0 !important;
   }
   
   .weekly-sales-chart canvas {
-    min-width: 400px;
+    min-width: 100% !important; /* Change from 400px to 100% */
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important; /* Maintain chart proportions */
+    display: block !important;
   }
+  
+  /* Container for the chart section */
+  .weekly-sales-section,
+  .chart-container,
+  .analytics-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* Ensure chart title/heading doesn't break layout */
+  .weekly-sales-section h2,
+  .chart-title {
+    font-size: 18px !important;
+    margin-bottom: 15px !important;
+    padding: 0 5px !important;
+    width: 100% !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
   
   .recent-orders table {
     min-width: 600px;
