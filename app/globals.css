@@ -1666,105 +1666,54 @@ table td button:hover {
   
 /* ===== DESKTOP: Keep normal table layout ===== */
 /* Mobile table that fits with all text visible */
-@media (max-width: 768px) {
-  .recent-orders {
-    width: 100% !important;
-    overflow: visible !important;
-    padding: 0 5px !important;
-    box-sizing: border-box;
-  }
-  
-  .recent-orders table {
-    width: 100% !important;
-    table-layout: fixed !important;
-    font-size: 9px !important; /* Start with very small font */
-    border-spacing: 0;
-    border-collapse: collapse;
-  }
-  
-  /* Ultra-compact cells */
-  .recent-orders th,
-  .recent-orders td {
-    padding: 3px 1px !important;
-    line-height: 1 !important;
-    height: 26px !important; /* Fixed height */
-    vertical-align: middle;
-    text-align: center;
-    border: 1px solid #e0e0e0;
-    overflow: visible !important;
-    white-space: normal !important;
-    word-break: break-word; /* Break long words if needed */
-  }
-  
-  /* Column distribution - optimized for typical content */
-  .recent-orders th:nth-child(1),
-  .recent-orders td:nth-child(1) { width: 6%; }  /* Order ID - usually short */
-  .recent-orders th:nth-child(2),
-  .recent-orders td:nth-child(2) { width: 10%; } /* Client */
-  .recent-orders th:nth-child(3),
-  .recent-orders td:nth-child(3) { width: 9%; }  /* Order Type */
-  .recent-orders th:nth-child(4),
-  .recent-orders td:nth-child(4) { width: 9%; }  /* Category */
-  .recent-orders th:nth-child(5),
-  .recent-orders td:nth-child(5) { width: 9%; }  /* Status */
-  .recent-orders th:nth-child(6),
-  .recent-orders td:nth-child(6) { width: 57%; } /* Action - most space */
-  
-  /* Action button that always fits */
-  .recent-orders td:last-child button {
-    padding: 2px 5px !important;
-    font-size: 8px !important;
-    min-width: 50px !important;
-    max-width: 80px !important;
-    margin: 0 auto;
-    display: block;/* Mobile table with balanced columns and one line */
+/* ===== MOBILE: Minimal action button, balanced columns ===== */
 @media (max-width: 768px) {
   .recent-orders {
     width: 100% !important;
     overflow: visible !important;
   }
   
-  .recent-orders table {
+  table {
     width: 100% !important;
     table-layout: fixed !important;
-    font-size: 10px !important;
+    font-size: 11px !important;
   }
   
-  /* Balanced column widths - all get fair share */
-  .recent-orders th,
-  .recent-orders td {
-    width: calc(100% / 6) !important; /* All columns equal */
-    min-width: 0 !important; /* Allow shrinking */
+  /* Optimized column distribution - action gets minimal space */
+  table th:nth-child(1),
+  table td:nth-child(1) { width: 12%; }  /* Order ID */
+  table th:nth-child(2),
+  table td:nth-child(2) { width: 22%; } /* Client */
+  table th:nth-child(3),
+  table td:nth-child(3) { width: 18%; } /* Order Type */
+  table th:nth-child(4),
+  table td:nth-child(4) { width: 18%; } /* Category */
+  table th:nth-child(5),
+  table td:nth-child(5) { width: 15%; } /* Status */
+  table th:nth-child(6),
+  table td:nth-child(6) { width: 15%; } /* Action - MINIMAL space */
+  
+  /* One line cells */
+  th, td {
     white-space: nowrap !important;
-    overflow: hidden !important; /* Hide overflow if text too long */
+    overflow: hidden !important;
+    text-overflow: ellipsis !important; /* Will show ... if text too long */
     padding: 5px 3px !important;
     text-align: center !important;
-    box-sizing: border-box !important;
+    height: 30px !important;
   }
   
-  /* But show full text on hover */
-  .recent-orders td:hover {
-    overflow: visible !important;
-    background: white !important;
-    z-index: 10;
-    position: relative;
-  }
-  
-  /* Action button fits in equal column */
-  .recent-orders td button {
-    padding: 3px 3px !important;
-    font-size: 3px !important;
-    width: 100% !important; /* Fill the cell */
-    max-width: 40px !important; /* But limit size */
+  /* Ultra-compact button */
+  td button {
+    padding: 2px 4px !important; /* Minimal padding */
+    font-size: 9px !important; /* Very small text */
+    min-height: 20px !important;
+    line-height: 1 !important;
+    width: auto !important;
+    min-width: 40px !important; /* Very narrow */
+    max-width: 50px !important;
+    display: inline-block;
     margin: 0 auto;
-    display: block;
-  }
-}
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
     white-space: nowrap;
   }
 }
