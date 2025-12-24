@@ -1665,75 +1665,65 @@ table td button:hover {
 
   
 /* ===== DESKTOP: Keep normal table layout ===== */
-/* ===== MOBILE: One line table cells with smaller font ===== */
+/* Mobile table that fits with all text visible */
 @media (max-width: 768px) {
-  .table-wrapper,
   .recent-orders {
-    overflow-x: visible !important;
     width: 100% !important;
+    overflow: visible !important;
+    padding: 0 5px !important;
+    box-sizing: border-box;
   }
   
-  table {
+  .recent-orders table {
     width: 100% !important;
     table-layout: fixed !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
-    font-size: 12px !important; /* Smaller font */
+    font-size: 9px !important; /* Start with very small font */
+    border-spacing: 0;
+    border-collapse: collapse;
   }
   
-  th, td {
-    white-space: nowrap !important; /* Force one line */
-    overflow: hidden !important;
-    text-overflow: ellipsis !important; /* Show ... if text is too long */
-    padding: 6px 3px !important; /* Reduce padding */
-    line-height: 1.2 !important;
-    height: 35px !important; /* Fixed height for one line */
-  }
-  
-  /* Column widths - adjust as needed */
-  table th:nth-child(1),
-  table td:nth-child(1) { width: 8%; min-width: 40px; } /* Order ID */
-  table th:nth-child(2),
-  table td:nth-child(2) { width: 15%; min-width: 70px; } /* Client */
-  table th:nth-child(3),
-  table td:nth-child(3) { width: 12%; min-width: 60px; } /* Order Type */
-  table th:nth-child(4),
-  table td:nth-child(4) { width: 12%; min-width: 60px; } /* Category */
-  table th:nth-child(5),
-  table td:nth-child(5) { width: 12%; min-width: 60px; } /* Status */
-  table th:nth-child(6),
-  table td:nth-child(6) { width: 41%; min-width: 100px; } /* Action */
-  
-  /* Make headers smaller */
-  th {
-    font-size: 11px !important;
-    font-weight: 600 !important;
-    padding: 8px 3px !important;
-  }
-  
-  /* Style for status badges to fit in one line */
-  .status-badge {
-    display: inline-block;
-    padding: 3px 6px !important;
-    font-size: 10px !important;
-    border-radius: 3px;
-    white-space: nowrap;
-  }
-  
-  /* Make action button smaller */
-  td button {
-    padding: 4px 8px !important;
-    font-size: 11px !important;
-    min-height: 24px !important;
+  /* Ultra-compact cells */
+  .recent-orders th,
+  .recent-orders td {
+    padding: 3px 1px !important;
     line-height: 1 !important;
-    white-space: nowrap;
-    width: auto !important;
-    max-width: 90px !important;
+    height: 26px !important; /* Fixed height */
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+    overflow: visible !important;
+    white-space: normal !important;
+    word-break: break-word; /* Break long words if needed */
   }
   
-  /* Truncate text in all cells except action button */
-  td:not(:last-child) {
-    max-width: 0; /* Force truncation */
+  /* Column distribution - optimized for typical content */
+  .recent-orders th:nth-child(1),
+  .recent-orders td:nth-child(1) { width: 6%; }  /* Order ID - usually short */
+  .recent-orders th:nth-child(2),
+  .recent-orders td:nth-child(2) { width: 10%; } /* Client */
+  .recent-orders th:nth-child(3),
+  .recent-orders td:nth-child(3) { width: 9%; }  /* Order Type */
+  .recent-orders th:nth-child(4),
+  .recent-orders td:nth-child(4) { width: 9%; }  /* Category */
+  .recent-orders th:nth-child(5),
+  .recent-orders td:nth-child(5) { width: 9%; }  /* Status */
+  .recent-orders th:nth-child(6),
+  .recent-orders td:nth-child(6) { width: 57%; } /* Action - most space */
+  
+  /* Action button that always fits */
+  .recent-orders td:last-child button {
+    padding: 2px 5px !important;
+    font-size: 8px !important;
+    min-width: 50px !important;
+    max-width: 80px !important;
+    margin: 0 auto;
+    display: block;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    white-space: nowrap;
   }
 }
   
