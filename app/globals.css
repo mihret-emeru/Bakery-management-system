@@ -1717,7 +1717,49 @@ table td button:hover {
     min-width: 50px !important;
     max-width: 80px !important;
     margin: 0 auto;
+    display: block;/* Mobile table with balanced columns and one line */
+@media (max-width: 768px) {
+  .recent-orders {
+    width: 100% !important;
+    overflow: visible !important;
+  }
+  
+  .recent-orders table {
+    width: 100% !important;
+    table-layout: fixed !important;
+    font-size: 10px !important;
+  }
+  
+  /* Balanced column widths - all get fair share */
+  .recent-orders th,
+  .recent-orders td {
+    width: calc(100% / 6) !important; /* All columns equal */
+    min-width: 0 !important; /* Allow shrinking */
+    white-space: nowrap !important;
+    overflow: hidden !important; /* Hide overflow if text too long */
+    padding: 5px 3px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* But show full text on hover */
+  .recent-orders td:hover {
+    overflow: visible !important;
+    background: white !important;
+    z-index: 10;
+    position: relative;
+  }
+  
+  /* Action button fits in equal column */
+  .recent-orders td button {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+    width: 100% !important; /* Fill the cell */
+    max-width: 70px !important; /* But limit size */
+    margin: 0 auto;
     display: block;
+  }
+}
     background: #007bff;
     color: white;
     border: none;
