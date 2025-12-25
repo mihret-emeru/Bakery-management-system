@@ -2081,6 +2081,6 @@ body, html, #root, .app {
     margin: 0 !important;
      padding: 0 15px !important; /* Add some padding instead of 0 */
     box-sizing: border-box !important;
-       margin-left: 400;
+       margin-left: 100;
   }
 }
