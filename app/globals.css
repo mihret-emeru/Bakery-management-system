@@ -2081,44 +2081,6 @@ body, html, #root, .app {
     margin: 0 !important;
      padding: 0 15px !important; /* Add some padding instead of 0 */
     box-sizing: border-box !important;
-       margin-left: 200;
+       margin-left: 400;
   }
-}
-/* ============================================
-   FIX FOR ALL NON-DASHBOARD PAGES
-   Removes extra space between sidebar and content
-============================================ */
-
-/* Mobile fix for all pages */
-@media (max-width: 768px) {
-  /* Reset ALL direct children of main-content to start at 0 */
-  .main-content > * {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  
-  /* Specifically target problematic containers */
-  .main-content .container,
-  .main-content .wrapper,
-  .main-content .content-wrapper,
-  .main-content .page-container,
-  .main-content .pro,
-  .main-content .payment,
-  .main-content .customers,
-  .main-content .analytics,
-  .main-content .products,
-  .main-content .inventory,
-  .main-content .settings {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    box-sizing: border-box !important;
-  }
-  
-  
 }
