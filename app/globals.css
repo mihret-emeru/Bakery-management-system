@@ -1849,9 +1849,7 @@ body, html, #root, .app {
 }
 
 /* If there's a gap between sidebar and content, remove it */
-.sidebar + .main-content {
-  margin-left: 0; /* Overridden by more specific rule above */
-}
+
 
 /* Make sure content area starts exactly at sidebar end */
 .main-content {
