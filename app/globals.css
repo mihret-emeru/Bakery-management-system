@@ -1789,6 +1789,7 @@ table td button:hover {
     display: block;
     width: 100%;
   }
+}
   /* Hide some table columns on very small screens to save space */
   @media (max-width: 360px) {
     .recent-orders th:nth-child(3), /* Undertype column */
@@ -1796,7 +1797,7 @@ table td button:hover {
       display: none;
     }
   }
-}
+
 
 /* FIX FOR WHITE SPACE ISSUE */
 /* Remove any max-width constraints that might be causing white space */
