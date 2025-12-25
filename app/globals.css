@@ -2039,8 +2039,8 @@ body, html, #root, .app {
 @media (max-width: 768px) {
   .pcards,
   .ccards {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: 2fr;
+    gap: 5px;
   }
 
   .pcard,
