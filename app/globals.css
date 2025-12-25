@@ -2039,12 +2039,15 @@ body, html, #root, .app {
 @media (max-width: 768px) {
   .pcards,
   .ccards {
-    grid-template-columns: 2fr;
-    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 👈 two per row */
+    gap: 10px;
   }
 
   .pcard,
   .ccard {
     padding: 12px;
+    font-size: 12px;
   }
 }
+
