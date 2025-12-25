@@ -2116,7 +2116,8 @@ body, html, #root, .app {
   }
   
   /* 3. Remove any containers that might add space */
-  .container, .wrapper, .content, .page, .section, .div, .pro, .payment, .customers, .analytics, .products, .inventory, .settings {
+  .container, .wrapper, .content, .page, .section, .div, .pro, .payment, 
+  .customers, .analytics, .products, .inventory, .settings {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -2133,5 +2134,33 @@ body, html, #root, .app {
   .main-content {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Default for ALL pages (what's already working) */
+  .main-content > div {
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Only fix pages that have the .pro class (problematic ones) */
+  .main-content > div.pro {
+    margin-left: -10px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: calc(100% + 20px) !important;
+  }
+  
+  /* But EXCLUDE dashboard, settings, analytics even if they have .pro */
+  .main-content > div.pro.dashboard,
+  .main-content > div.pro.settings,
+  .main-content > div.pro.analytics {
+    margin-left: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: 100% !important;
   }
 }
