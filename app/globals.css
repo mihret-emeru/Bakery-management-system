@@ -1991,35 +1991,60 @@ body, html, #root, .app {
    =============================== */
 
 @media (max-width: 768px) {
-
-  /* Payment page */
-  .payment,
-  .payment-page,
-  .payment-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  /* Customer page */
-  .customer,
-  .customers,
-  .customer-page,
-  .customer-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  /* Force their inner content to stretch */
-  .payment * ,
-  .customers * {
+  .pro,
+  .container {
+    width: 100%;
     max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-content {
+    width: 100%;
+    padding: 14px;
+    overflow-x: hidden;
   }
 }
+@media (max-width: 768px) {
+  .payment-table,
+  .customer-table {
+    width: 100%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 
+  .payment-table table,
+  .customer-table table {
+    width: 100%;
+    min-width: 700px;
+  }
+}
+@media (max-width: 768px) {
+  .payment-table td button,
+  .customer-table td button {
+    padding: 4px 6px;
+    font-size: 10px;
+    min-width: 50px;
+    height: 24px;
+  }
 
+  table th,
+  table td {
+    font-size: 11px;
+    padding: 6px;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .pcards,
+  .ccards {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .pcard,
+  .ccard {
+    padding: 12px;
+  }
+}
