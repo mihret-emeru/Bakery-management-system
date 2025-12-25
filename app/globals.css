@@ -2040,14 +2040,40 @@ body, html, #root, .app {
   .pcards,
   .ccards {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 👈 two per row */
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px; /* tighter gap */
+    width: 100%;
   }
 
   .pcard,
   .ccard {
-    padding: 12px;
-    font-size: 12px;
+    padding: 8px 6px;        /* reduce padding */
+    min-height: 70px;        /* control height */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pcard h3,
+  .ccard h3 {
+    font-size: 11px;
+    margin: 2px 0;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .pcard p,
+  .ccard p {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .emoji-icon {
+    font-size: 16px; /* reduce emoji size */
+    margin-bottom: 2px;
   }
 }
 
