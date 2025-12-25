@@ -2081,6 +2081,7 @@ body, html, #root, .app {
     margin: 0 !important;
      padding: 0 15px !important; /* Add some padding instead of 0 */
     box-sizing: border-box !important;
+       margin-left: 200;
   }
 }
 /* ============================================
@@ -2119,8 +2120,5 @@ body, html, #root, .app {
     box-sizing: border-box !important;
   }
   
-  /* Remove any negative margins or padding that might be causing offset */
-  * {
-    margin-left: 0 !important;
-  }
+  
 }
