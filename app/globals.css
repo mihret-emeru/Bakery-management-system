@@ -2081,8 +2081,11 @@ body, html, #root, .app {
     margin: 0 !important;
      padding: 0 15px !important; /* Add some padding instead of 0 */
     box-sizing: border-box !important;
-      
   }
+   .pro.analytics,
+.pro.settings {
+  margin-left: 16px;
+}  
 }
 /* ============================================
    NUCLEAR OPTION - FORCEFULLY FIX ALL PAGES
@@ -2162,5 +2165,13 @@ body, html, #root, .app {
     padding-left: 15px !important;
     padding-right: 15px !important;
     width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  .ocards,
+  .pcards,
+  .ccards {
+    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    gap: 10px;
   }
 }
