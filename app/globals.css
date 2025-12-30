@@ -1826,9 +1826,9 @@ body {
 /* If there's a specific element causing white space, target it */
 .main-content > .container,
 .main-content > .wrapper {
-  padding-left: 12px !important;
+  padding-left: 5px !important;
   padding-right: 0 !important;
-  margin-left: 60px !important;
+  margin-left: 5px !important;
   margin-right:  0 !important;
 }
 /* Add this if you still have white space issues */
@@ -2095,8 +2095,8 @@ body, html, #root, .app {
 @media (max-width: 768px) {
   /* 1. RESET EVERYTHING inside main-content */
   .main-content * {
-    margin-left: 12px !important;
-    padding-left: 12px !important;
+    margin-left: 5px !important;
+    padding-left: 5px !important;
     margin-right: 0 !important;
     padding-right: 0 !important;
     max-width: none !important;
