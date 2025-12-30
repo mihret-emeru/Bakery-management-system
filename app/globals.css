@@ -2281,3 +2281,10 @@ body, html, #root, .app {
   background: red !important;
   border: 3px solid black !important;
 }
+@media (max-width: 768px) {
+  .pcard,
+  .ccard {
+    padding: 4px 6px !important;
+    min-height: 50px !important;
+  }
+}
