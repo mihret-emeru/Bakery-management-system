@@ -2175,3 +2175,84 @@ body, html, #root, .app {
     gap: 10px;
   }
 }
+
+
+/* Desktop and tablet already handled, only fix mobile */
+@media (max-width: 768px) {
+  /* Dashboard / Analytics / Settings */
+  .dashboard,
+  .pro.analytics,
+  .pro.settings {
+    margin-left: 60px;      /* matches sidebar width */
+    padding-left: 12px;     /* small gap inside content */
+    padding-right: 12px;
+    width: calc(100% - 60px); /* prevent overflow */
+    box-sizing: border-box;
+  }
+}
+@media (max-width: 768px) {
+  /* Make cards 2 per row */
+  .ocards,
+  .pcards,
+  .ccards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;   /* adjust spacing */
+  }
+
+  /* Minimize individual card size */
+  .ocard,
+  .pcard,
+  .ccard {
+    padding: 8px;
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* smaller text */
+  }
+
+  /* Optional: center headings / values */
+  .ocard h3,
+  .pcard h3,
+  .ccard h3 {
+    font-size: 11px;
+    margin: 2px 0;
+    text-align: center;
+  }
+
+  .ocard p,
+  .pcard p,
+  .ccard p {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .dashboard,
+  .pro.analytics,
+  .pro.settings {
+    margin-left: 50px; /* matches sidebar width on small screen */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 50px);
+  }
+
+  .ocards,
+  .pcards,
+  .ccards {
+    grid-template-columns: 1fr; /* stack 1 per row */
+    gap: 8px;
+  }
+
+  .ocard,
+  .pcard,
+  .ccard {
+    padding: 6px;
+    font-size: 11px;
+    min-height: 60px;
+  }
+}
