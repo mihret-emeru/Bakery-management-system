@@ -1787,7 +1787,7 @@ table td button:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: #666;
+    color: black;
     font-weight: 400;
   }
   
@@ -2274,4 +2274,10 @@ body, html, #root, .app {
     font-size: 11px;
     min-height: 60px;
   }
+}
+  .ocard,
+.pcard,
+.ccard {
+  background: red !important;
+  border: 3px solid black !important;
 }
