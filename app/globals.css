@@ -2321,6 +2321,20 @@ body, html, #root, .app {
     box-sizing: border-box;
   }
 }
+
+@media (max-width: 768px) {
+  .pro .payment,
+  .pro .products,
+  .pro .inventory,
+  .pro .OrderHistory,
+  .pro .customers {
+    margin-left: 50px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    width: calc(100% - 50px) !important;
+    box-sizing: border-box;
+  }
+}
 @media (max-width: 480px) {
   .pro > div {
     margin-left: 50px !important;
