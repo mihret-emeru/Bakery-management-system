@@ -2217,7 +2217,7 @@ body, html, #root, .app {
   .pcards,
   .ccards {
     display: grid;
-   grid-template-columns: repeat(2, minmax(120px, 1fr));
+   grid-template-columns: repeat(2, minmax(50px, 1fr));
     gap: 6px;
   }
 
