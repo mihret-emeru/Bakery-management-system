@@ -2224,8 +2224,8 @@ body, html, #root, .app {
   .ocard,
   .pcard,
   .ccard {
-    padding: 4px 6px !important;
-    min-height: 60px !important;   /* 🔑 allow shrink */
+    padding:2px 4px !important;
+    min-height: 50px !important;   /* 🔑 allow shrink */
     height: auto !important;
     display: flex;
     
@@ -2254,7 +2254,7 @@ body, html, #root, .app {
     line-height: 1.1;
   }
   .emoji-icon {
-    font-size: 14px !important;   /* smaller emoji */
+    font-size: 12px !important;   /* smaller emoji */
     width: auto !important;       /* 🔑 remove fixed width */
     height: auto !important;      /* 🔑 remove fixed height */
     min-width: 0 !important;
@@ -2295,9 +2295,9 @@ body, html, #root, .app {
   .ocard,
   .pcard,
   .ccard {
-    padding: 6px;
-    font-size: 11px;
-    min-height: 60px;
+    padding: 4px;
+    font-size: 10px;
+    min-height: 50px;
   }
 }
   .ocard,
