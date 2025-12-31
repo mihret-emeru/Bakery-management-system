@@ -2338,6 +2338,25 @@ body, html, #root, .app {
   }
 }
 
+@media (max-width: 768px) {
+  /* Force all .pro pages to align with sidebar */
+  .main-content > div.pro,
+  .main-content > div.pro * {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Then add correct left offset for sidebar */
+  .main-content > div.pro {
+    margin-left: 5px !important;   /* sidebar width */
+    padding-left: 5px !important;
+    padding-right: 15px !important;
+    width: calc(100% - 5px) !important;
+  }
+}
 
 
 
