@@ -2229,13 +2229,14 @@ body, html, #root, .app {
     min-height: unset !important;   /* 🔑 allow shrink */
     height: auto !important;
     display: flex;
-    flex-direction: row !important; /* row, not column */
+    
       gap: 8px !important;   
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
+  
   /* Shrink title */
   .ocard h3,
   .pcard h3,
@@ -2259,6 +2260,7 @@ body, html, #root, .app {
     height: auto !important;      /* 🔑 remove fixed height */
     min-width: 0 !important;
     min-height: 0 !important;
+    margin-top: 2px !important; 
     padding: 0 !important;
     margin: 0 !important;
     display: inline-flex !important;
