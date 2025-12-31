@@ -2044,19 +2044,20 @@ body, html, #root, .app {
     text-align: center;
   }
 }
+   /* reduce padding 
 @media (max-width: 768px) {
   .pcards,
   .ccards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px; /* tighter gap */
+    gap: 8px; 
     width: 100%;
   }
 
   .pcard,
   .ccard {
-    padding:  4px 6px;         /* reduce padding */
-    min-height:50px;        /* control height */
+    padding:  4px 6px;        
+    min-height:50px;        
     height: auto;
     display: flex;
     flex-direction: column;
@@ -2080,10 +2081,10 @@ body, html, #root, .app {
   }
 
   .emoji-icon {
-    font-size: 16px; /* reduce emoji size */
+    font-size: 16px; 
     margin-bottom: 2px;
   }
-}
+}*/
 @media (max-width: 768px) {
   .pro,
   .pro .container {
@@ -2176,22 +2177,23 @@ body, html, #root, .app {
     width: 100% !important;
   }
 }
+   /* make sure it's a grid 
 @media (max-width: 768px) {
   .ocards,
   .pcards,
   .ccards {
-    display: grid !important;                  /* make sure it's a grid */
-    grid-template-columns: repeat(2, 1fr) !important; /* 2 per row */
-    gap: 10px !important;                     /* spacing between cards */
+    display: grid !important;                  
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;                     
   }
   
   .ocards > *,
   .pcards > *,
   .ccards > * {
-    width: 100%;                              /* make cards fit their grid column */
+    width: 100%;                              
     box-sizing: border-box;
   }
-}
+}*/
 
 
 
@@ -2280,10 +2282,4 @@ body, html, #root, .app {
   background: red !important;
   border: 3px solid black !important;
 }
-@media (max-width: 768px) {
-  .pcard,
-  .ccard {
-    padding: 4px 6px !important;
-    min-height: 50px !important;
-  }
-}
+
