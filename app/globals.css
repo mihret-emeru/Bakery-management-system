@@ -2127,7 +2127,7 @@ body, html, #root, .app {
     box-sizing: border-box !important;
     display: block !important;
     overflow-x: hidden !important;
-  }
+  }*/
   .container, .wrapper, .content, .page, .section, .div, .pro, .payment, 
   .customers, .analytics, .products, .inventory, .settings {
     width: 100% !important;
@@ -2135,7 +2135,7 @@ body, html, #root, .app {
     margin: 0 !important;
     padding: 0 !important;
     display: block !important;
-  }*/
+  }
   
   /* 4. Ensure content touches the sidebar */
   .app-container {
