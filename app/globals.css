@@ -2308,3 +2308,14 @@ body, html, #root, .app {
   border: 3px solid black !important;
 }
 
+  @media (max-width: 480px) {
+  .pro.payment,
+    .pro.products,
+    .pro.inventory,
+    .pro.OrderHistory,
+  .pro.customers {
+    margin-left: 50px; /* matches sidebar width on small screen */
+    padding-left: 10px;
+    padding-right: 10px;
+    width: calc(100% - 50px);
+  }
