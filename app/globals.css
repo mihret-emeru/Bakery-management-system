@@ -2321,4 +2321,12 @@ body, html, #root, .app {
     box-sizing: border-box;
   }
 }
+@media (max-width: 480px) {
+  .pro > div {
+    margin-left: 50px !important;
+    padding: 0 10px !important;
+    width: calc(100% - 50px) !important;
+    box-sizing: border-box;
+  }
+}
 
