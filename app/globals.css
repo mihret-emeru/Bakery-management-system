@@ -2251,6 +2251,11 @@ body, html, #root, .app {
     margin: 0 !important;          /* 🔑 remove vertical space */
     line-height: 1.1;
   }
+   .emoji-icon {
+    font-size: 14px !important; /* 🔽 smaller emoji */
+    line-height: 1;
+    flex-shrink: 0;             /* don't shrink emoji */
+  }
 }
 
 @media (max-width: 480px) {
