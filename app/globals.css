@@ -2319,6 +2319,23 @@ body, html, #root, .app {
     width: calc(100% - 50px) !important;
     box-sizing: border-box;
   }
+   /* Inner containers that might add extra space */
+  .main-content > div.pro.payment .container,
+  .main-content > div.pro.products .container,
+  .main-content > div.pro.inventory .container,
+  .main-content > div.pro.OrderHistory .container,
+  .main-content > div.pro.customers .container,
+  .main-content > div.pro.payment .wrapper,
+  .main-content > div.pro.products .wrapper,
+  .main-content > div.pro.inventory .wrapper,
+  .main-content > div.pro.OrderHistory .wrapper,
+  .main-content > div.pro.customers .wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+  }
 }
 
 
