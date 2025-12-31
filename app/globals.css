@@ -2211,46 +2211,48 @@ body, html, #root, .app {
   }
 }
 @media (max-width: 768px) {
-  /* Make cards 2 per row */
+
+  /* 2 cards per row */
   .ocards,
   .pcards,
   .ccards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;   /* adjust spacing */
+    gap: 6px; /* tighter gap */
   }
 
-  /* Minimize individual card size */
+  /* Shrink cards */
   .ocard,
   .pcard,
   .ccard {
-    padding: 8px;
-    min-height: 70px;
+    padding: 4px 6px !important;
+    min-height: unset !important;   /* 🔑 allow shrink */
+    height: auto !important;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-size: 12px; /* smaller text */
+    align-items: center;
   }
 
-  /* Optional: center headings / values */
+  /* Shrink title */
   .ocard h3,
   .pcard h3,
   .ccard h3 {
-    font-size: 11px;
-    margin: 2px 0;
-    text-align: center;
+    font-size: 10px !important;
+    margin: 0 !important;          /* 🔑 remove vertical space */
+    line-height: 1.1;
   }
 
+  /* Shrink value */
   .ocard p,
   .pcard p,
   .ccard p {
-    font-size: 13px;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
+    font-size: 12px !important;
+    margin: 0 !important;          /* 🔑 remove vertical space */
+    line-height: 1.1;
   }
 }
+
 @media (max-width: 480px) {
   .dashboard,
   .pro.analytics,
