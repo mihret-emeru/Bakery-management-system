@@ -2313,9 +2313,9 @@ body, html, #root, .app {
   .main-content > div.pro.inventory,
   .main-content > div.pro.OrderHistory,
   .main-content > div.pro.customers {
-    margin-left: 50px !important;   /* same as sidebar */
-    padding-left: 10px !important;  /* small inner padding */
-    padding-right: 10px !important;
+    margin-left: 5px !important;   /* same as sidebar */
+    padding-left: 5px !important;  /* small inner padding */
+    padding-right: 15px !important;
     width: calc(100% - 50px) !important;
     box-sizing: border-box;
   }
