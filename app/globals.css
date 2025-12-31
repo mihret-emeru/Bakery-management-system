@@ -2252,7 +2252,7 @@ body, html, #root, .app {
     line-height: 1.1;
   }
    .emoji-icon {
-    font-size: 14px !important; /* 🔽 smaller emoji */
+    font-size: 8px !important; /* 🔽 smaller emoji */
     line-height: 1;
     flex-shrink: 0;             /* don't shrink emoji */
   }
