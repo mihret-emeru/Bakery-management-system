@@ -2216,7 +2216,7 @@ body, html, #root, .app {
   .pcards,
   .ccards {
     display: grid;
-   grid-template-columns: repeat(2, minmax(50px, 1fr));
+   grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
      width: 100% !important;
     max-width: 100% !important;
@@ -2288,7 +2288,7 @@ body, html, #root, .app {
   .pcards,
   .ccards {
  display: grid;
-   grid-template-columns: repeat(2, minmax(20px, 1fr));
+   grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 6px;
      min-width: 0 !important;   /* 🔑 MOST IMPORTANT */
     width: 100% !important;
