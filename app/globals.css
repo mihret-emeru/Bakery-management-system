@@ -2158,13 +2158,13 @@ body, html, #root, .app {
     box-sizing: border-box;
   }
   
-  /* Only fix pages that have the .pro class (problematic ones) */
+  /* Only fix pages that have the .pro class (problematic ones) 
   .main-content > div.pro {
     margin-left: -10px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
     width: calc(100% + 20px) !important;
-  }
+  }*/
   
   /* But EXCLUDE dashboard, settings, analytics even if they have .pro */
   .main-content > div.dashboard,
@@ -2218,6 +2218,10 @@ body, html, #root, .app {
     display: grid;
    grid-template-columns: repeat(2, minmax(50px, 1fr));
     gap: 6px;
+     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;   /* 🔑 prevents overflow */
+    overflow: hidden;
   }
 
   /* Shrink cards */
