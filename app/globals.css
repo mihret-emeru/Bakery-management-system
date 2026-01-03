@@ -2930,7 +2930,7 @@ body, html, #root, .app {
     max-height: 36px !important;
     
     /* PADDING */
-    padding: 8px 16px !important;
+    padding: 4px 8px !important;
     
     /* ORANGE BUTTON STYLES */
     background-color: #ff9800 !important;
@@ -3010,7 +3010,7 @@ body, html, #root, .app {
     min-width: 100px !important;
     max-width: 130px !important;
     height: 32px !important;
-    padding: 6px 12px !important;
+    padding: 4px 8px !important;
     font-size: 13px !important;
     margin: 0 8px 6px 0 !important;
   }
@@ -3449,31 +3449,4 @@ body, html, #root, .app {
   }
 }
 
-
-  @media (max-width: 768px) {
-
-  /* KILL default margins above filters */
-  .pro .main-content h1 {
-    margin-bottom: 4px !important;
-  }
-
-  .pro .main-content p {
-    margin-top: 0 !important;
-    margin-bottom: 6px !important;
-  }
-
-  .pro .order-divider {
-    margin: 6px 0 !important;
-    height: 1px !important;
-  }
-
-  /* Tighten filters → button spacing */
-  .pro .filters {
-    margin-bottom: 4px !important;
-  }
-
-  .pro .main-content > .btn {
-    margin-top: 0 !important;
-  }
-}
 
