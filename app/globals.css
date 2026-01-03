@@ -2883,7 +2883,7 @@ body, html, #root, .app {
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: flex-start !important; /* LEFT ALIGNMENT */
-    gap: 10px !important;
+    gap: 5px !important;
     width: 100% !important;
     margin-bottom: 15px !important;
     padding: 0 !important;
@@ -2982,7 +2982,7 @@ body, html, #root, .app {
     /* When there are multiple buttons, wrap them */
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 10px !important;
+    gap: 5px !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
   }
