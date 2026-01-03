@@ -2946,7 +2946,7 @@ body, html, #root, .app {
     line-height: 1.2 !important;
     
     /* POSITIONING */
-    margin: 5px 10px 5px 0 !important; /* Right margin for spacing between buttons */
+    margin: 0px 8px 6px 0 !important; /* Right margin for spacing between buttons */
     
     /* NO STRETCHING */
     flex: 0 0 auto !important;
@@ -3012,7 +3012,7 @@ body, html, #root, .app {
     height: 32px !important;
     padding: 6px 12px !important;
     font-size: 13px !important;
-    margin: 5px 8px 5px 0 !important;
+    margin: 0 8px 6px 0 !important;
   }
 }
 
