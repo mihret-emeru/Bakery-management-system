@@ -2764,3 +2764,22 @@ body, html, #root, .app {
     font-size: 12px !important;
   }
 }
+
+
+@media (max-width: 768px) {
+
+  .main-content > .btn {
+    all: unset;                 /* ☢️ reset button completely */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 14px;
+    background: #2563eb;        /* keep visible */
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+}
