@@ -2588,3 +2588,198 @@ body, html, #root, .app {
     gap: 8px !important;
   }
 }
+
+  /* ============================================
+   FIX ANALYTICS CARDS - EMOJI POSITIONING
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* Target analytics page specifically */
+  .pro.analytics,
+  .analytics,
+  [class*="analytics"] {
+    /* Ensure proper spacing */
+    padding-top: 10px !important;
+  }
+  
+  /* Analytics cards container */
+  .pro.analytics .ocards,
+  .analytics .ocards,
+  .analytics-cards,
+  .cards.analytics {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 20px !important;
+  }
+  
+  /* Individual analytics cards */
+  .pro.analytics .ocard,
+  .analytics .ocard,
+  .analytics-card {
+    /* Reset and force new layout */
+    all: unset !important;
+    position: relative !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 85px !important; /* Slightly taller for analytics */
+    height: auto !important;
+    padding: 12px 8px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important; /* Changed from center */
+    align-items: center !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+  
+  /* EMOJI FIX - Position at top with proper spacing */
+  .pro.analytics .emoji-icon,
+  .analytics .emoji-icon,
+  .analytics-card .emoji-icon,
+  .pro.analytics .ocard .emoji,
+  .analytics .ocard .emoji {
+    all: unset !important;
+    display: block !important;
+    font-size: 20px !important;
+    margin: 8px 0 6px 0 !important; /* Top margin, bottom margin */
+    padding: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    height: 24px !important; /* Fixed height */
+    line-height: 24px !important;
+    /* Prevent emoji from stretching */
+    flex-shrink: 0 !important;
+    /* Position at top */
+    order: 1 !important; /* First in flex order */
+  }
+  
+  /* Card titles (should be below emoji) */
+  .pro.analytics .ocard h3,
+  .analytics .ocard h3,
+  .analytics-card h3 {
+    all: unset !important;
+    display: block !important;
+    font-size: 11px !important;
+    margin: 0 0 4px 0 !important; /* Reduced bottom margin */
+    padding: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+    order: 2 !important; /* Second in flex order */
+    flex-shrink: 0 !important;
+  }
+  
+  /* Card values (should be at bottom) */
+  .pro.analytics .ocard p,
+  .analytics .ocard p,
+  .analytics-card .value,
+  .analytics-card p {
+    all: unset !important;
+    display: block !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin: auto 0 0 0 !important; /* Push to bottom with auto top margin */
+    padding: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    line-height: 1.2 !important;
+    order: 3 !important; /* Third in flex order */
+    /* Allow value to grow and push to bottom */
+    flex-grow: 1 !important;
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  
+  /* Alternative layout - using flex spacing */
+  .pro.analytics .ocard.fix-emoji,
+  .analytics .ocard.fix-emoji {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important; /* Space between items */
+    align-items: center !important;
+  }
+}
+
+/* Extra small screens (≤480px) */
+@media (max-width: 480px) {
+  .pro.analytics .ocard,
+  .analytics .ocard,
+  .analytics-card {
+    min-height: 80px !important;
+    padding: 10px 6px !important;
+  }
+  
+  .pro.analytics .emoji-icon,
+  .analytics .emoji-icon {
+    font-size: 18px !important;
+    margin: 6px 0 4px 0 !important;
+    height: 22px !important;
+    line-height: 22px !important;
+  }
+  
+  .pro.analytics .ocard h3,
+  .analytics .ocard h3 {
+    font-size: 10px !important;
+  }
+  
+  .pro.analytics .ocard p,
+  .analytics .ocard p {
+    font-size: 16px !important;
+  }
+}
+
+/* If using different emoji container classes */
+@media (max-width: 768px) {
+  /* Target any icon/emoji container at top of analytics cards */
+  .pro.analytics .ocard > div:first-child,
+  .analytics .ocard > div:first-child,
+  .analytics-card > div:first-child,
+  .pro.analytics .ocard > i:first-child,
+  .analytics .ocard > i:first-child,
+  .analytics-card > i:first-child {
+    /* This targets the first child which is likely the emoji */
+    margin-top: 8px !important;
+    margin-bottom: 6px !important;
+    display: block !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
+
+/* NUCLEAR OPTION - If still not working, use absolute positioning */
+@media (max-width: 768px) {
+  .pro.analytics .nuclear-fix,
+  .analytics .nuclear-fix {
+    position: relative !important;
+    padding-top: 30px !important; /* Make room for emoji */
+  }
+  
+  .pro.analytics .nuclear-fix .emoji-icon,
+  .analytics .nuclear-fix .emoji-icon {
+    position: absolute !important;
+    top: 10px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 auto !important;
+    height: 24px !important;
+  }
+  
+  .pro.analytics .nuclear-fix h3,
+  .analytics .nuclear-fix h3 {
+    margin-top: 30px !important; /* Push down below emoji */
+  }
+}
