@@ -2765,62 +2765,85 @@ body, html, #root, .app {
   }
 }
 
+
 /* ============================================
-   TARGETED NUCLEAR BUTTON FIX
-   Only affects specific buttons, keeps orange color, doesn't touch sidebar
+   NUCLEAR BUTTON WIDTH FIX - THIS WILL WORK
    ============================================ */
 
 @media (max-width: 768px) {
-  /* ONLY target specific button classes - no all: unset! */
-  .btn,
-  .add-btn,
-  .add-btnn,
-  .add-item,
-  .restock-btn,
-  .signin-btn,
-  .back-btn,
-  .save-btn {
-    /* Reset ONLY width and display properties */
+  /* STEP 1: Reset parent containers that force full width */
+  .main-content div:has(> .btn),
+  .main-content div:has(> .add-btn),
+  .main-content div:has(> .add-btnn),
+  .main-content div:has(> .add-item),
+  .main-content div:has(> .restock-btn),
+  .main-content div:has(> .signin-btn),
+  .main-content div:has(> .back-btn),
+  .main-content div:has(> .save-btn) {
+    display: inline-block !important;
     width: auto !important;
-    min-width: auto !important;
+    min-width: 0 !important;
     max-width: none !important;
+  }
+  
+  /* STEP 2: Target the buttons themselves */
+  .main-content .btn,
+  .main-content .add-btn,
+  .main-content .add-btnn,
+  .main-content .add-item,
+  .main-content .restock-btn,
+  .main-content .signin-btn,
+  .main-content .back-btn,
+  .main-content .save-btn,
+  .main-content button[class*="btn"],
+  .main-content a[class*="btn"] {
+    /* Force inline display */
     display: inline-block !important;
     
-    /* Keep existing padding or use compact */
-    padding: 6px 12px !important;
+    /* Kill all width constraints */
+    width: auto !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    
+    /* Remove flex stretching */
+    flex: 0 0 auto !important;
+    
+    /* Remove any full width classes */
+    &.w-full,
+    &[class*="w-full"],
+    &[style*="width: 100%"],
+    &[style*="width:100%"] {
+      width: auto !important;
+      min-width: auto !important;
+      max-width: none !important;
+    }
+    
+    /* Compact padding */
+    padding: 8px 16px !important;
     white-space: nowrap !important;
     
-    /* Force inline display */
-    float: none !important;
-    
-    /* IMPORTANT: Keep existing colors - DO NOT override */
+    /* Keep original colors - IMPORTANT */
     background-color: inherit !important;
+    background: inherit !important;
     color: inherit !important;
     border-color: inherit !important;
-    
-    /* Ensure button doesn't stretch */
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    flex-basis: auto !important;
   }
   
-  /* EXCLUDE sidebar buttons */
-  .sidebar .btn,
-  .sidebar .add-btn,
-  .sidebar .add-btnn,
-  .sidebar .add-item,
-  .sidebar .restock-btn,
-  .sidebar .signin-btn,
-  .sidebar .back-btn,
-  .sidebar .save-btn {
-    /* Revert for sidebar - keep original styles */
-    width: 100% !important;
-    display: flex !important;
-    /* Reset all the overrides above */
-    all: revert !important;
+  /* STEP 3: Fix form buttons specifically */
+  form .btn,
+  form .add-btn,
+  form .add-btnn,
+  form .add-item,
+  form .restock-btn,
+  form .signin-btn,
+  form .back-btn,
+  form .save-btn {
+    display: inline-block !important;
+    width: auto !important;
+    margin-right: 10px !important;
   }
   
-  /* Tables: Make buttons extra compact */
+  /* STEP 4: Fix table buttons - extra compact */
   table .btn,
   table .add-btn,
   table .add-btnn,
@@ -2840,39 +2863,26 @@ body, html, #root, .app {
     padding: 4px 8px !important;
     font-size: 10px !important;
     min-width: 60px !important;
-    max-width: 100px !important;
-  }
-  
-  /* Fix for form buttons - keep inline */
-  form .btn,
-  form .add-btn,
-  form .add-btnn,
-  form .add-item,
-  form .restock-btn,
-  form .signin-btn,
-  form .back-btn,
-  form .save-btn {
-    width: auto !important;
-    min-width: 80px !important;
-    max-width: 120px !important;
+    max-width: 80px !important;
+    height: 28px !important;
+    line-height: 1 !important;
   }
 }
 
-/* Extra small screens */
+/* For extra small screens */
 @media (max-width: 480px) {
-  .btn,
-  .add-btn,
-  .add-btnn,
-  .add-item,
-  .restock-btn,
-  .signin-btn,
-  .back-btn,
-  .save-btn {
-    padding: 4px 8px !important;
-    font-size: 11px !important;
+  .main-content .btn,
+  .main-content .add-btn,
+  .main-content .add-btnn,
+  .main-content .add-item,
+  .main-content .restock-btn,
+  .main-content .signin-btn,
+  .main-content .back-btn,
+  .main-content .save-btn {
+    padding: 6px 12px !important;
+    font-size: 12px !important;
   }
   
-  /* Table buttons even smaller */
   table .btn,
   table .add-btn,
   table .add-btnn,
@@ -2884,29 +2894,7 @@ body, html, #root, .app {
     padding: 3px 6px !important;
     font-size: 9px !important;
     min-width: 50px !important;
-    max-width: 80px !important;
-  }
-}
-  @media (max-width: 768px) {
-  /* Force orange buttons to stay orange */
-  .btn[style*="orange"],
-  .btn[style*="Orange"],
-  .btn[style*="#FFA500"],
-  .btn[style*="#ff9800"],
-  .btn[style*="rgb(255, 165, 0)"],
-  .btn.orange,
-  .btn.btn-orange,
-  .add-btn,
-  .add-btnn,
-  .add-item {
-    /* Keep orange background */
-    background-color: #ff9800 !important; /* Your orange color */
-    color: white !important;
-    border-color: #e68900 !important;
-    
-    /* Still fix width */
-    width: auto !important;
-    display: inline-block !important;
-    padding: 6px 12px !important;
+    max-width: 70px !important;
+    height: 24px !important;
   }
 }
