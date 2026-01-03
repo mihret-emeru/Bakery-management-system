@@ -3448,3 +3448,32 @@ body, html, #root, .app {
     margin-left: 10px !important;
   }
 }
+
+
+  @media (max-width: 768px) {
+
+  /* KILL default margins above filters */
+  .pro .main-content h1 {
+    margin-bottom: 4px !important;
+  }
+
+  .pro .main-content p {
+    margin-top: 0 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .pro .order-divider {
+    margin: 6px 0 !important;
+    height: 1px !important;
+  }
+
+  /* Tighten filters → button spacing */
+  .pro .filters {
+    margin-bottom: 4px !important;
+  }
+
+  .pro .main-content > .btn {
+    margin-top: 0 !important;
+  }
+}
+
