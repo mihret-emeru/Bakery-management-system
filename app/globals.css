@@ -1944,6 +1944,27 @@ body, html, #root, .app {
     width: 100%;
   }
 }
+
+
+@media (max-width: 768px) {
+
+  /* Target EXACT button position */
+  .main-content > .btn {
+    justify-self: start !important;   /* 🔑 grid fix */
+    width: auto !important;
+    display: inline-flex !important;
+    padding: 6px 14px !important;
+    margin-top: 10px;
+  }
+}
+  @media (max-width: 768px) {
+  .main-content {
+    align-items: flex-start !important;
+  }
+}
+
+
+  
 /* ===============================
    FIX ZOOM-OUT ON NON-DASHBOARD PAGES
    (Payment, Customer, Analytics)
