@@ -2209,9 +2209,10 @@ body, html, #root, .app {
     box-sizing: border-box;
   }
 }
+  /* 2 cards per row 
 @media (max-width: 768px) {
 
-  /* 2 cards per row */
+  
   .ocards,
   .pcards,
   .ccards {
@@ -2220,16 +2221,16 @@ body, html, #root, .app {
     gap: 6px;
      width: 100% !important;
     max-width: 100% !important;
-    min-width: 0 !important;   /* 🔑 prevents overflow */
+    min-width: 0 !important;  
     overflow: hidden;
   }
 
-  /* Shrink cards */
+  
   .ocard,
   .pcard,
   .ccard {
     padding:2px 4px !important;
-    min-height: 30px !important;   /* 🔑 allow shrink */
+    min-height: 30px !important;   
     height: auto !important;
     display: flex;
     
@@ -2240,27 +2241,26 @@ body, html, #root, .app {
   }
 
   
-  /* Shrink title */
   .ocard h3,
   .pcard h3,
   .ccard h3 {
     font-size: 6px !important;
-    margin: 0 !important;          /* 🔑 remove vertical space */
+    margin: 0 !important;          
     line-height: 1.1;
   }
 
-  /* Shrink value */
+  
   .ocard p,
   .pcard p,
   .ccard p {
     font-size: 5px !important;
-    margin: 0 !important;          /* 🔑 remove vertical space */
+    margin: 0 !important;          
     line-height: 1.1;
   }
   .emoji-icon {
-    font-size: 12px !important;   /* smaller emoji */
-    width: auto !important;       /* 🔑 remove fixed width */
-    height: auto !important;      /* 🔑 remove fixed height */
+    font-size: 12px !important;  
+    width: auto !important;       
+    height: auto !important;      
     min-width: 0 !important;
     min-height: 0 !important;
     margin-top: 2px !important; 
@@ -2272,7 +2272,7 @@ body, html, #root, .app {
     line-height: 1 !important;
     flex-shrink: 0 !important;
   }
-}
+}*/
 
 @media (max-width: 480px) {
   .dashboard,
@@ -2362,6 +2362,265 @@ body, html, #root, .app {
   }
 }
 
+/* ============================================
+   NUCLEAR FIX - ONLY FOR ORDER HISTORY, PAYMENT, CUSTOMER
+   ============================================ */
 
+@media (max-width: 768px) {
+  /* TARGET SPECIFIC PAGES BY CLASS */
+  .pro.OrderHistory,
+  .pro.payment,
+  .pro.customers,
+  .OrderHistory,
+  .payment,
+  .customers,
+  [class*="OrderHistory"],
+  [class*="payment"],
+  [class*="customer"],
+  .main-content > div[class*="OrderHistory"],
+  .main-content > div[class*="payment"],
+  .main-content > div[class*="customer"] {
+    /* Reset the entire page container */
+    all: unset !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    box-sizing: border-box !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* NUCLEAR RESET FOR CARD CONTAINERS ON THESE PAGES */
+  .pro.OrderHistory .ocards,
+  .pro.payment .pcards,
+  .pro.customers .ccards,
+  .OrderHistory .ocards,
+  .payment .pcards,
+  .customers .ccards,
+  .ocards,
+  .pcards,
+  .ccards,
+  .pro.OrderHistory [class*="cards"],
+  .pro.payment [class*="cards"],
+  .pro.customers [class*="cards"] {
+    /* Kill all existing styles */
+    all: unset !important;
+    /* Force grid layout */
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+  
+  /* NUCLEAR RESET FOR INDIVIDUAL CARDS */
+  .pro.OrderHistory .ocard,
+  .pro.payment .pcard,
+  .pro.customers .ccard,
+  .ocard,
+  .pcard,
+  .ccard,
+  .pro.OrderHistory [class*="card"]:not([class*="container"]),
+  .pro.payment [class*="card"]:not([class*="container"]),
+  .pro.customers [class*="card"]:not([class*="container"]) {
+    /* Kill all existing styles */
+    all: unset !important;
+    /* Force consistent card styling */
+    min-width: 0 !important;
+    width: 100% !important;
+    min-height: 65px !important;
+    height: auto !important;
+    padding: 10px 8px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    background: white !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+  
+  /* FORCE ALL CARD TITLES (h3) */
+  .ocard h3,
+  .pcard h3,
+  .ccard h3,
+  .pro.OrderHistory .ocard h3,
+  .pro.payment .pcard h3,
+  .pro.customers .ccard h3 {
+    all: unset !important;
+    display: block !important;
+    font-size: 10px !important;
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    width: 100% !important;
+    text-align: center !important;
+    color: #666 !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* FORCE ALL CARD VALUES (p or .value) */
+  .ocard p,
+  .pcard p,
+  .ccard p,
+  .pro.OrderHistory .ocard p,
+  .pro.payment .pcard p,
+  .pro.customers .ccard p,
+  .ocard .value,
+  .pcard .value,
+  .ccard .value {
+    all: unset !important;
+    display: block !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    color: #333 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* FORCE ALL ICONS/EMOJIS */
+  .ocard .emoji-icon,
+  .pcard .emoji-icon,
+  .ccard .emoji-icon,
+  .emoji-icon {
+    all: unset !important;
+    display: block !important;
+    font-size: 18px !important;
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  /* FORCE NO HORIZONTAL OVERFLOW ON THESE PAGES */
+  .pro.OrderHistory,
+  .pro.payment,
+  .pro.customers,
+  .OrderHistory,
+  .payment,
+  .customers,
+  .pro.OrderHistory *,
+  .pro.payment *,
+  .pro.customers * {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Extra small screens (≤480px) */
+@media (max-width: 480px) {
+  .pro.OrderHistory .ocards,
+  .pro.payment .pcards,
+  .pro.customers .ccards,
+  .ocards,
+  .pcards,
+  .ccards {
+    gap: 6px !important;
+  }
+  
+  .pro.OrderHistory .ocard,
+  .pro.payment .pcard,
+  .pro.customers .ccard,
+  .ocard,
+  .pcard,
+  .ccard {
+    padding: 8px 6px !important;
+    min-height: 60px !important;
+  }
+  
+  .ocard h3,
+  .pcard h3,
+  .ccard h3 {
+    font-size: 9px !important;
+  }
+  
+  .ocard p,
+  .pcard p,
+  .ccard p {
+    font-size: 14px !important;
+  }
+  
+  .emoji-icon {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================
+   EXTREME NUCLEAR - TARGET BY PAGE CONTENT
+   ============================================ */
+@media (max-width: 768px) {
+  /* If pages have specific content text */
+  div:has(> h2:contains("Order History")),
+  div:has(> h2:contains("Payment")),
+  div:has(> h2:contains("Customer")),
+  div:has(> h1:contains("Order History")),
+  div:has(> h1:contains("Payment")),
+  div:has(> h1:contains("Customer")) {
+    /* Target cards within these pages */
+    & .ocards,
+    & .pcards,
+    & .ccards,
+    & [class*="cards"] {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+      width: 100% !important;
+    }
+    
+    & .ocard,
+    & .pcard,
+    & .ccard,
+    & [class*="card"] {
+      width: 100% !important;
+      min-height: 65px !important;
+      padding: 10px !important;
+      text-align: center !important;
+    }
+  }
+}
+
+/* ============================================
+   BLOODBATH OPTION - ABSOLUTE OVERRIDE
+   ============================================ */
+@media (max-width: 768px) {
+  /* Style attributes override - force everything */
+  [class*="OrderHistory"] [class*="card"],
+  [class*="payment"] [class*="card"],
+  [class*="customer"] [class*="card"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 10px 8px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kill any existing grid/flex on parent */
+  [class*="OrderHistory"] > div > div,
+  [class*="payment"] > div > div,
+  [class*="customer"] > div > div {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+}
 
 
