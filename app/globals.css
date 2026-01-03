@@ -2767,11 +2767,11 @@ body, html, #root, .app {
 
 
 /* ============================================
-   FIX BUTTON COLORS - ORANGE BG / WHITE TEXT
+   NUCLEAR BUTTON WIDTH FIX - THIS WILL WORK
    ============================================ */
 
 @media (max-width: 768px) {
-  /* Fix button colors to orange/white */
+  /* STEP 1: NUCLEAR RESET - Remove all existing button styles */
   .main-content .btn,
   .main-content .add-btn,
   .main-content .add-btnn,
@@ -2780,33 +2780,65 @@ body, html, #root, .app {
   .main-content .signin-btn,
   .main-content .back-btn,
   .main-content .save-btn {
-    /* Force orange background with white text */
-    background-color: #ff9800 !important;
-    background: #ff9800 !important;
-    color: white !important;
-    border-color: #e68900 !important;
+    /* NUCLEAR: Remove ALL existing styles */
+    all: unset !important;
     
-    /* Keep width fix */
+    /* Now rebuild the button from scratch */
+    /* 1. Force inline-block (NOT block) */
+    display: inline-block !important;
+    
+    /* 2. Kill ALL width constraints */
+    width: auto !important;
+    min-width: unset !important;
+    max-width: unset !important;
+    
+    /* 3. Remove flex/grid constraints */
+    flex: 0 0 auto !important;
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    flex-basis: auto !important;
+    
+    /* 4. Remove parent constraints */
+    align-self: flex-start !important;
+    justify-self: start !important;
+    
+    /* 5. Set padding and text */
+    padding: 10px 20px !important;
+    white-space: nowrap !important;
+    font-size: 14px !important;
+    
+    /* 6. ORANGE BUTTON STYLES */
+    background-color: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+    border-radius: 6px !important;
+    
+    /* 7. Remove any positioning that might affect width */
+    position: static !important;
+    float: none !important;
+    margin: 5px !important;
+  }
+  
+  /* STEP 2: FIX PARENT CONTAINERS that might be forcing width */
+  .main-content div:has(> .btn),
+  .main-content div:has(> .add-btn),
+  .main-content div:has(> .add-btnn),
+  .main-content div:has(> .add-item),
+  .main-content div:has(> .restock-btn),
+  .main-content div:has(> .signin-btn),
+  .main-content div:has(> .back-btn),
+  .main-content div:has(> .save-btn) {
+    /* Force parent to not stretch buttons */
     display: inline-block !important;
     width: auto !important;
-    padding: 8px 16px !important;
-    white-space: nowrap !important;
+    
+    /* Remove flex/grid stretching */
+    flex: 0 0 auto !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
   }
   
-  /* Hover states */
-  .main-content .btn:hover,
-  .main-content .add-btn:hover,
-  .main-content .add-btnn:hover,
-  .main-content .add-item:hover,
-  .main-content .restock-btn:hover,
-  .main-content .signin-btn:hover,
-  .main-content .back-btn:hover,
-  .main-content .save-btn:hover {
-    background-color: #e68900 !important;
-    background: #e68900 !important;
-  }
-  
-  /* Table buttons - same colors but smaller */
+  /* STEP 3: Fix table buttons separately */
   table .btn,
   table .add-btn,
   table .add-btnn,
@@ -2823,42 +2855,15 @@ body, html, #root, .app {
   td .signin-btn,
   td .back-btn,
   td .save-btn {
-    background-color: #ff9800 !important;
-    color: white !important;
-    border-color: #e68900 !important;
-    padding: 4px 8px !important;
-    font-size: 10px !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+    min-width: 80px !important;
+    max-width: 120px !important;
   }
 }
 
-/* Alternative orange color if #ff9800 isn't your exact orange */
-@media (max-width: 768px) {
-  /* Different orange variations - uncomment the one that matches */
-  .main-content .btn,
-  .main-content .add-btn {
-    /* Bright orange */
-    background-color: #ff9800 !important; /* Material Orange */
-    /* background-color: #ff9800 !important; */
-    
-    /* Darker orange */
-    /* background-color: #f57c00 !important; */
-    
-    /* Red-orange */
-    /* background-color: #ff5722 !important; */
-    
-    /* Pure orange */
-    /* background-color: orange !important; */
-    
-    color: white !important;
-  }
-}
-/* ============================================
-   ULTIMATE BUTTON COLOR FIX - ORANGE
-   This overrides EVERYTHING that came before
-   ============================================ */
-
-@media (max-width: 768px) {
-  /* Reset ALL button styles and apply orange */
+/* For very small screens */
+@media (max-width: 480px) {
   .main-content .btn,
   .main-content .add-btn,
   .main-content .add-btnn,
@@ -2867,48 +2872,7 @@ body, html, #root, .app {
   .main-content .signin-btn,
   .main-content .back-btn,
   .main-content .save-btn {
-    all: unset !important;
-    
-    /* Recreate as orange button */
-    display: inline-block !important;
-    width: auto !important;
     padding: 8px 16px !important;
-    margin: 4px !important;
-    
-    /* ORANGE STYLES */
-    background: linear-gradient(135deg, #ff9800, #ff5722) !important;
-    background-color: #ff9800 !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px !important;
-    
-    /* Text styles */
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    text-align: center !important;
-    text-decoration: none !important;
-    cursor: pointer !important;
-    white-space: nowrap !important;
-    
-    /* Shadow */
-    box-shadow: 0 2px 5px rgba(255, 152, 0, 0.3) !important;
-    
-    /* Smooth transition */
-    transition: all 0.2s ease !important;
-  }
-  
-  /* Hover effect */
-  .main-content .btn:hover,
-  .main-content .add-btn:hover,
-  .main-content .add-btnn:hover,
-  .main-content .add-item:hover,
-  .main-content .restock-btn:hover,
-  .main-content .signin-btn:hover,
-  .main-content .back-btn:hover,
-  .main-content .save-btn:hover {
-    background: linear-gradient(135deg, #ff5722, #ff9800) !important;
-    background-color: #ff5722 !important;
-    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.4) !important;
-    transform: translateY(-1px) !important;
+    font-size: 13px !important;
   }
 }
