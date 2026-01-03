@@ -2951,6 +2951,7 @@ body, html, #root, .app {
     /* NO STRETCHING */
     flex: 0 0 auto !important;
     cursor: pointer !important;
+    
   }
   
   /* STEP 4: SPECIFIC BUTTON STYLES */
@@ -3446,6 +3447,14 @@ body, html, #root, .app {
     white-space: nowrap !important;
     z-index: 1001 !important;
     margin-left: 10px !important;
+  }
+}
+
+  @media (max-width: 768px) {
+  .pro .main-content > .btn {
+    margin-top: 6px !important;   /* ✅ controls the gap */
+    width: fit-content;
+    padding: 8px 16px;
   }
 }
 
