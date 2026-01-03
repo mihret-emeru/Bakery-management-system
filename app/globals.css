@@ -3244,3 +3244,207 @@ body, html, #root, .app {
     width: 100% !important;
   }
 }
+
+
+
+/* ============================================
+   NUCLEAR FIX FOR SIDEBAR ON MOBILE
+   Makes logo, title, header, and divider responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  
+  
+  /* STEP 2: SIDEBAR HEADER - Make compact */
+  .sidebar-header {
+    all: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 15px 0 10px 0 !important;
+    margin: 0 !important;
+    text-align: center !important;
+  }
+  
+  /* STEP 3: LOGO - Make small and centered */
+  .sidebar-logo {
+    all: unset !important;
+    display: block !important;
+    width: 30px !important;
+    height: 30px !important;
+    min-width: 30px !important;
+    min-height: 30px !important;
+    max-width: 30px !important;
+    max-height: 30px !important;
+    margin: 0 auto 8px auto !important;
+    padding: 0 !important;
+    border-radius: 6px !important;
+    object-fit: contain !important;
+  }
+  
+  /* STEP 4: SIDEBAR TITLE - Hide on mobile */
+  .sidebar-title {
+    all: unset !important;
+    display: none !important;
+  }
+  
+  /* STEP 5: SIDEBAR DIVIDER - Make thin or hide */
+  .sidebar-divider {
+    all: unset !important;
+    display: block !important;
+    width: 80% !important;
+    height: 1px !important;
+    background: #eee !important;
+    margin: 8px auto !important;
+    padding: 0 !important;
+  }
+  
+  /* STEP 6: NAVIGATION LINKS - Icon only */
+  .sidebar a {
+    all: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 12px 0 !important;
+    margin: 0 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    
+    /* Hide text */
+    font-size: 0 !important;
+    color: transparent !important;
+    
+    /* Active state */
+    &.active-link {
+      background: rgba(255, 152, 0, 0.1) !important;
+      border-left: 3px solid #ff9800 !important;
+    }
+  }
+  
+  /* STEP 7: ICONS - Make visible and centered */
+  .sidebar a .icon,
+  .sidebar .icon {
+    all: unset !important;
+    display: block !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #666 !important;
+    text-align: center !important;
+    width: 100% !important;
+    line-height: 1 !important;
+  }
+  
+  /* STEP 8: LOGOUT BUTTON - Icon only */
+  .logout-btn {
+    all: unset !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 12px 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    border: none !important;
+    cursor: pointer !important;
+    
+    /* Hide text */
+    font-size: 0 !important;
+    color: transparent !important;
+  }
+  
+  .logout-icon {
+    all: unset !important;
+    display: block !important;
+    font-size: 18px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #ff4444 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  /* STEP 9: HOVER EFFECTS - Remove or simplify */
+  .sidebar a:hover,
+  .logout-btn:hover {
+    background: rgba(255, 152, 0, 0.05) !important;
+  }
+  
+  .sidebar a:hover .icon {
+    color: #ff9800 !important;
+  }
+  
+  /* STEP 10: MAIN CONTENT ADJUSTMENT */
+  .main-content {
+    margin-left: 60px !important;
+    width: calc(100% - 60px) !important;
+    padding: 15px 10px !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+  }
+}
+
+/* EXTRA SMALL SCREENS (≤480px) */
+@media (max-width: 480px) {
+  .sidebar {
+    width: 50px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    padding: 8px 0 !important;
+  }
+  
+  .sidebar-logo {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+  }
+  
+  .sidebar a .icon,
+  .sidebar .icon {
+    font-size: 18px !important;
+  }
+  
+  .logout-icon {
+    font-size: 16px !important;
+  }
+  
+  .sidebar a {
+    padding: 10px 0 !important;
+  }
+  
+  .logout-btn {
+    padding: 10px 0 !important;
+  }
+  
+}
+
+/* OPTIONAL: Show tooltip on hover for mobile */
+@media (max-width: 768px) {
+  .sidebar a {
+    position: relative !important;
+  }
+  
+  .sidebar a:hover::after {
+    content: attr(title) !important;
+    position: absolute !important;
+    left: 100% !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: #333 !important;
+    color: white !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    z-index: 1001 !important;
+    margin-left: 10px !important;
+  }
+}
