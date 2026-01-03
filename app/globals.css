@@ -2856,3 +2856,162 @@ body, html, #root, .app {
     vertical-align: middle !important;
   }
 }
+
+
+
+/* ============================================
+   NUCLEAR FIX FOR ALL PAGES: Order, Inventory, Products, Customers
+   ============================================ */
+
+@media (max-width: 768px) {
+  /* STEP 1: FIX MAIN CONTENT CONTAINER */
+  .pro .main-content,
+  .pro .container .main-content {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* STEP 2: FIX FILTERS DIV - ALIGN LEFT */
+  .pro .filters {
+    /* Display as flex, aligned left */
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important; /* LEFT ALIGNMENT */
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
+    
+    /* Make inputs/selects take available space but not stretch */
+    & input,
+    & select {
+      flex: 1 1 auto !important;
+      min-width: 120px !important;
+      max-width: 200px !important;
+      height: 36px !important;
+      border-radius: 4px !important;
+      border: 1px solid #ddd !important;
+      padding: 0 10px !important;
+      font-size: 14px !important;
+    }
+  }
+  
+  /* STEP 3: FIX ALL BUTTONS AFTER FILTERS */
+  .pro .main-content > .btn,
+  .pro .main-content > .add-btn,
+  .pro .main-content > .add-btnn,
+  .pro .main-content > .add-item,
+  .pro .main-content > .restock-btn,
+  .pro .container .main-content > .btn,
+  .pro .container .main-content > .add-btn,
+  .pro .container .main-content > .add-btnn,
+  .pro .container .main-content > .add-item,
+  .pro .container .main-content > .restock-btn {
+    /* NUCLEAR RESET */
+    all: unset !important;
+    
+    /* FORCE INLINE-BLOCK */
+    display: inline-block !important;
+    
+    /* FIXED WIDTH - NOT FULL WIDTH */
+    width: auto !important;
+    min-width: 120px !important;
+    max-width: 140px !important;
+    
+    /* FIXED HEIGHT */
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+    
+    /* PADDING */
+    padding: 8px 16px !important;
+    
+    /* ORANGE BUTTON STYLES */
+    background-color: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+    border-radius: 6px !important;
+    
+    /* TEXT */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    
+    /* POSITIONING */
+    margin: 5px 10px 5px 0 !important; /* Right margin for spacing between buttons */
+    
+    /* NO STRETCHING */
+    flex: 0 0 auto !important;
+    cursor: pointer !important;
+  }
+  
+  /* STEP 4: SPECIFIC BUTTON STYLES */
+  /* Inventory page has 2 buttons */
+  .pro.inventory .restock-btn {
+    background-color: #4CAF50 !important; /* Green for restock */
+    border-color: #45a049 !important;
+  }
+  
+  /* Products page has 2 buttons with different classes */
+  .pro.products .add-btnn {
+    background-color: #2196F3 !important; /* Blue for add product */
+    border-color: #1976D2 !important;
+  }
+  
+  /* STEP 5: ARRANGE BUTTONS IN A ROW */
+  .pro .main-content > .btn + .btn,
+  .pro .main-content > .add-btn + .add-btnn,
+  .pro .main-content > .add-item + .restock-btn,
+  .pro .main-content > .add-btn + .add-btnn,
+  .pro .container .main-content > .btn + .btn {
+    margin-left: 0 !important; /* Remove left margin for adjacent buttons */
+  }
+  
+  /* STEP 6: CREATE BUTTON CONTAINER FOR MULTIPLE BUTTONS */
+  .pro .main-content:has(> .btn + .btn),
+  .pro .main-content:has(> .add-btn + .add-btnn),
+  .pro .main-content:has(> .add-item + .restock-btn) {
+    /* When there are multiple buttons, wrap them */
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+  }
+}
+
+/* EXTRA SMALL SCREENS */
+@media (max-width: 480px) {
+  .pro .filters {
+    gap: 8px !important;
+    
+    & input,
+    & select {
+      min-width: 100px !important;
+      max-width: 150px !important;
+      height: 32px !important;
+      font-size: 13px !important;
+    }
+  }
+  
+  .pro .main-content > .btn,
+  .pro .main-content > .add-btn,
+  .pro .main-content > .add-btnn,
+  .pro .main-content > .add-item,
+  .pro .main-content > .restock-btn {
+    min-width: 100px !important;
+    max-width: 130px !important;
+    height: 32px !important;
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    margin: 5px 8px 5px 0 !important;
+  }
+}
