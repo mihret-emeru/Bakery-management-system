@@ -1930,13 +1930,15 @@ body, html, #root, .app {
   .signin-btn,
   .back-btn,
   .save-btn {
-        width: auto !important;      /* 🔑 FIX */
-    min-width: 80px;             /* small but readable */
-    max-width: 160px;            /* prevents full width */
-    padding: 6px 12px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+      width: auto !important;
+    min-width: 60px !important;
+    max-width: 120px !important;
+    padding: 4px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 0 0 auto !important;   /* 🔑 stops flex stretch */
+    box-sizing: border-box !important;
   }
 
   .input-container input,
