@@ -2564,40 +2564,6 @@ body, html, #root, .app {
 }
 
 /* ============================================
-   EXTREME NUCLEAR - TARGET BY PAGE CONTENT
-   ============================================ */
-@media (max-width: 768px) {
-  /* If pages have specific content text */
-  div:has(> h2:contains("Order History")),
-  div:has(> h2:contains("Payment")),
-  div:has(> h2:contains("Customer")),
-  div:has(> h1:contains("Order History")),
-  div:has(> h1:contains("Payment")),
-  div:has(> h1:contains("Customer")) {
-    /* Target cards within these pages */
-    & .ocards,
-    & .pcards,
-    & .ccards,
-    & [class*="cards"] {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 8px !important;
-      width: 100% !important;
-    }
-    
-    & .ocard,
-    & .pcard,
-    & .ccard,
-    & [class*="card"] {
-      width: 100% !important;
-      min-height: 65px !important;
-      padding: 10px !important;
-      text-align: center !important;
-    }
-  }
-}
-
-/* ============================================
    BLOODBATH OPTION - ABSOLUTE OVERRIDE
    ============================================ */
 @media (max-width: 768px) {
@@ -2622,5 +2588,3 @@ body, html, #root, .app {
     gap: 8px !important;
   }
 }
-
-
