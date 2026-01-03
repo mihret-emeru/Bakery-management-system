@@ -2883,9 +2883,9 @@ body, html, #root, .app {
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: flex-start !important; /* LEFT ALIGNMENT */
-    gap: 5px !important;
+    gap: 10px !important;
     width: 100% !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 2px !important;
     padding: 0 !important;
     
     /* Make inputs/selects take available space but not stretch */
