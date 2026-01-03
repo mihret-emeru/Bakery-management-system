@@ -2765,114 +2765,94 @@ body, html, #root, .app {
   }
 }
 
-
 /* ============================================
-   NUCLEAR BUTTON WIDTH FIX - THIS WILL WORK
+   NUCLEAR FIX FOR "+ ADD ORDER" BUTTON IN ORDER PAGE
+   Based on your JSX structure
    ============================================ */
 
 @media (max-width: 768px) {
-  /* STEP 1: NUCLEAR RESET - Remove all existing button styles */
-  .main-content .btn,
-  .main-content .add-btn,
-  .main-content .add-btnn,
-  .main-content .add-item,
-  .main-content .restock-btn,
-  .main-content .signin-btn,
-  .main-content .back-btn,
-  .main-content .save-btn {
-    /* NUCLEAR: Remove ALL existing styles */
+  /* STEP 1: TARGET THE SPECIFIC BUTTON IN ORDER PAGE */
+  .pro .main-content > .btn,
+  .pro .container .main-content > .btn {
+    /* NUCLEAR RESET */
     all: unset !important;
     
-    /* Now rebuild the button from scratch */
-    /* 1. Force inline-block (NOT block) */
+    /* FORCE INLINE-BLOCK */
     display: inline-block !important;
     
-    /* 2. Kill ALL width constraints */
+    /* FIXED WIDTH - NOT FULL WIDTH */
     width: auto !important;
-    min-width: unset !important;
-    max-width: unset !important;
+    min-width: 120px !important;
+    max-width: 140px !important;
     
-    /* 3. Remove flex/grid constraints */
-    flex: 0 0 auto !important;
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
-    flex-basis: auto !important;
+    /* FIXED HEIGHT */
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
     
-    /* 4. Remove parent constraints */
-    align-self: flex-start !important;
-    justify-self: start !important;
+    /* PADDING */
+    padding: 8px 16px !important;
     
-    /* 5. Set padding and text */
-    padding: 10px 20px !important;
-    white-space: nowrap !important;
-    font-size: 14px !important;
-    
-    /* 6. ORANGE BUTTON STYLES */
+    /* ORANGE BUTTON STYLES */
     background-color: #ff9800 !important;
     color: white !important;
     border: 1px solid #e68900 !important;
     border-radius: 6px !important;
     
-    /* 7. Remove any positioning that might affect width */
+    /* TEXT */
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    
+    /* POSITIONING */
     position: static !important;
     float: none !important;
-    margin: 5px !important;
-  }
-  
-  /* STEP 2: FIX PARENT CONTAINERS that might be forcing width */
-  .main-content div:has(> .btn),
-  .main-content div:has(> .add-btn),
-  .main-content div:has(> .add-btnn),
-  .main-content div:has(> .add-item),
-  .main-content div:has(> .restock-btn),
-  .main-content div:has(> .signin-btn),
-  .main-content div:has(> .back-btn),
-  .main-content div:has(> .save-btn) {
-    /* Force parent to not stretch buttons */
-    display: inline-block !important;
-    width: auto !important;
+    margin: 10px 0 !important;
     
-    /* Remove flex/grid stretching */
+    /* NO STRETCHING */
     flex: 0 0 auto !important;
-    align-items: flex-start !important;
-    justify-content: flex-start !important;
+    align-self: flex-start !important;
   }
   
-  /* STEP 3: Fix table buttons separately */
-  table .btn,
-  table .add-btn,
-  table .add-btnn,
-  table .add-item,
-  table .restock-btn,
-  table .signin-btn,
-  table .back-btn,
-  table .save-btn,
-  td .btn,
-  td .add-btn,
-  td .add-btnn,
-  td .add-item,
-  td .restock-btn,
-  td .signin-btn,
-  td .back-btn,
-  td .save-btn {
-    padding: 6px 12px !important;
-    font-size: 12px !important;
-    min-width: 80px !important;
-    max-width: 120px !important;
+  /* STEP 2: FIX THE PARENT CONTAINERS */
+  .pro .main-content,
+  .pro .container .main-content {
+    /* Ensure main-content doesn't stretch button */
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
-}
-
-/* For very small screens */
-@media (max-width: 480px) {
-  .main-content .btn,
-  .main-content .add-btn,
-  .main-content .add-btnn,
-  .main-content .add-item,
-  .main-content .restock-btn,
-  .main-content .signin-btn,
-  .main-content .back-btn,
-  .main-content .save-btn {
-    padding: 8px 16px !important;
-    font-size: 13px !important;
+  
+  /* STEP 3: FIX THE FILTERS DIV - make it not stretch */
+  .pro .filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+    
+    /* Make inputs compact */
+    & input,
+    & select {
+      flex: 1 1 auto !important;
+      min-width: 120px !important;
+      max-width: 200px !important;
+      height: 36px !important;
+    }
+  }
+  
+  /* STEP 4: MAKE SURE BUTTON IS ON SAME LINE IF POSSIBLE */
+  .pro .filters + .btn {
+    margin-left: 10px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
   }
 }
