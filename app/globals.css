@@ -3676,66 +3676,181 @@ body, html, #root, .app {
 
 
 
-/* SIMPLE NUCLEAR FIX FOR INVENTORY/PRODUCTS GAPS */
-@media (max-width: 768px) {
-  /* Force reset on mobile */
-  .pro.inventory *,
-  .pro.products * {
-    box-sizing: border-box !important;
+/* NUCLEAR FIX FOR PRODUCTS AND INVENTORY PAGES ONLY */
+@media screen and (max-width: 768px) {
+  /* TARGET THE EXACT STRUCTURE */
+  body div.pro.products,
+  body div.pro.inventory,
+  body div[class*="pro products"],
+  body div[class*="pro inventory"] {
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
-  /* Remove all spacing */
-  .pro.inventory .main-content,
-  .pro.products .main-content {
+  /* DESTROY ALL CONTAINER GAPS */
+  .pro.products .container,
+  .pro.inventory .container,
+  .pro.products > div.container,
+  .pro.inventory > div.container,
+  .pro.products > .container,
+  .pro.inventory > .container {
     padding: 0 !important;
     margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
-  /* Tight headings */
-  .pro.inventory h1,
-  .pro.products h1 {
-    margin: 8px 0 4px 0 !important;
+  /* NUCLEAR MAIN CONTENT RESET */
+  .pro.products .main-content,
+  .pro.inventory .main-content,
+  .pro.products > .container > .main-content,
+  .pro.inventory > .container > .main-content,
+  .pro.products .container > .main-content,
+  .pro.inventory .container > .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* FORCE THE FIRST H1 TO BE TIGHT */
+  .pro.products .main-content h1:first-child,
+  .pro.inventory .main-content h1:first-child,
+  .pro.products .main-content > h1,
+  .pro.inventory .main-content > h1 {
+    margin: 0 !important;
     padding: 0 !important;
     font-size: 18px !important;
+    line-height: 1 !important;
+    margin-bottom: 2px !important;
+    margin-top: 8px !important;
   }
   
-  /* Tight paragraphs */
-  .pro.inventory p,
-  .pro.products p {
-    margin: 0 0 8px 0 !important;
-    padding: 0 !important;
-    font-size: 14px !important;
-  }
-  
-  /* Compact filters */
-  .pro.inventory .filters,
-  .pro.products .filters {
-    display: flex !important;
-    gap: 6px !important;
-    margin: 0 0 8px 0 !important;
-    padding: 0 !important;
-  }
-  
-  /* Compact buttons - force them together */
-  .pro.inventory .main-content > button,
-  .pro.products .main-content > button {
-    display: inline-block !important;
-    margin: 0 6px 6px 0 !important;
-    padding: 8px 12px !important;
-    font-size: 14px !important;
-  }
-  
-  /* Compact tables */
-  .pro.inventory table,
-  .pro.products table {
-    font-size: 12px !important;
+  /* FORCE THE FIRST P AFTER H1 TO BE TIGHT */
+  .pro.products .main-content h1:first-child + p,
+  .pro.inventory .main-content h1:first-child + p,
+  .pro.products .main-content > p:first-of-type,
+  .pro.inventory .main-content > p:first-of-type {
     margin: 0 !important;
+    padding: 0 !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+    margin-bottom: 6px !important;
   }
   
-  .pro.inventory table th,
-  .pro.inventory table td,
+  /* FILTERS - BRUTE FORCE */
+  .pro.products .main-content > .filters,
+  .pro.inventory .main-content > .filters,
+  .pro.products .main-content .filters,
+  .pro.inventory .main-content .filters,
+  .pro.products .main-content div[class*="filter"],
+  .pro.inventory .main-content div[class*="filter"] {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 8px !important;
+  }
+  
+  /* INPUTS AND SELECTS INSIDE FILTERS */
+  .pro.products .filters > input,
+  .pro.inventory .filters > input,
+  .pro.products .filters > select,
+  .pro.inventory .filters > select,
+  .pro.products .filters input,
+  .pro.inventory .filters input,
+  .pro.products .filters select,
+  .pro.inventory .filters select {
+    flex: 1 !important;
+    min-width: 120px !important;
+    height: 32px !important;
+    padding: 0 8px !important;
+    margin: 0 !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+  }
+  
+  /* BUTTONS - KILL ALL GAPS */
+  /* Target any button directly after .filters */
+  .pro.products .filters ~ button,
+  .pro.inventory .filters ~ button,
+  .pro.products .main-content > button,
+  .pro.inventory .main-content > button,
+  .pro.products .main-content button[class*="add"],
+  .pro.inventory .main-content button[class*="add"],
+  .pro.products .main-content button[class*="btn"],
+  .pro.inventory .main-content button[class*="btn"] {
+    all: unset !important;
+    display: inline-block !important;
+    min-width: 100px !important;
+    max-width: 130px !important;
+    height: 32px !important;
+    padding: 7px 10px !important;
+    margin: 0 4px 4px 0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+  }
+  
+  /* SPECIFIC BUTTON COLORS */
+  /* Products page buttons */
+  .pro.products button.add-btn {
+    background: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+  }
+  
+  .pro.products button.add-btnn {
+    background: #2196F3 !important;
+    color: white !important;
+    border: 1px solid #1976D2 !important;
+  }
+  
+  /* Inventory page buttons */
+  .pro.inventory button.add-item {
+    background: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+  }
+  
+  .pro.inventory button.restock-btn {
+    background: #4CAF50 !important;
+    color: white !important;
+    border: 1px solid #45a049 !important;
+  }
+  
+  /* FORCE BUTTONS TO STAY ON SAME LINE */
+  .pro.products button.add-btn + button.add-btnn,
+  .pro.inventory button.add-item + button.restock-btn {
+    margin-left: 0 !important;
+  }
+  
+  /* TABLES - KILL ALL TABLE GAPS */
+  .pro.products table,
+  .pro.inventory table,
+  .pro.products .main-content table,
+  .pro.inventory .main-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    table-layout: fixed !important;
+  }
+  
   .pro.products table th,
-  .pro.products table td {
-    padding: 4px 6px !important;
+  .pro.products table td,
+  .pro.inventory table th,
+  .pro.inventory table td {
+    padding: 3px 5px !important;
+    border: 1px solid #ddd !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 }
