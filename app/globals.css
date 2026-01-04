@@ -3450,11 +3450,195 @@ body, html, #root, .app {
   }
 }
 
-  @media (max-width: 768px) {
-  .pro .main-content > .btn {
-    margin-top: 6px !important;   /* ✅ controls the gap */
-    width: fit-content;
-    padding: 8px 16px;
+ @media (max-width: 768px) {
+  /* NUCLEAR RESET - REMOVE ALL GAPS */
+  .pro .main-content > *,
+  .pro .container .main-content > * {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* MAIN CONTAINER - COMPACT */
+  .pro .main-content,
+  .pro .container .main-content {
+    display: block !important;
+    width: 100% !important;
+    padding: 8px 0 !important;
+    margin: 0 !important;
+  }
+  
+  /* HEADER - TIGHT */
+  .pro h1 {
+    margin: 0 0 4px 0 !important;
+    padding: 0 !important;
+    font-size: 20px !important;
+  }
+  
+  /* SUBTITLE - TIGHT */
+  .pro p {
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    font-size: 14px !important;
+    color: #666 !important;
+  }
+  
+  /* FILTERS - ULTRA COMPACT */
+  .pro .filters {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  .pro .filters > * {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  .pro .filters input,
+  .pro .filters select {
+    flex: 1 1 auto !important;
+    min-width: 120px !important;
+    max-width: 48% !important;
+    height: 34px !important;
+    border-radius: 4px !important;
+    border: 1px solid #ddd !important;
+    padding: 0 8px !important;
+    font-size: 14px !important;
+    margin: 0 !important;
+  }
+  
+  /* BUTTONS - NO GAPS BETWEEN */
+  .pro .main-content > .btn,
+  .pro .main-content > .add-btn,
+  .pro .main-content > .add-btnn,
+  .pro .main-content > .add-item,
+  .pro .main-content > .restock-btn,
+  .pro .container .main-content > .btn,
+  .pro .container .main-content > .add-btn,
+  .pro .container .main-content > .add-btnn,
+  .pro .container .main-content > .add-item,
+  .pro .container .main-content > .restock-btn {
+    all: unset !important;
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 110px !important;
+    max-width: 130px !important;
+    height: 34px !important;
+    padding: 6px 12px !important;
+    background-color: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    margin: 0 6px 6px 0 !important;
+    cursor: pointer !important;
+    vertical-align: top !important;
+  }
+  
+  /* BUTTON COLORS */
+  .pro.inventory .restock-btn {
+    background-color: #4CAF50 !important;
+    border-color: #45a049 !important;
+  }
+  
+  .pro.products .add-btnn {
+    background-color: #2196F3 !important;
+    border-color: #1976D2 !important;
+  }
+  
+  /* HORIZONTAL RULE - THIN */
+  hr {
+    margin: 8px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-top: 1px solid #eee !important;
+  }
+  
+  /* TABLE HEADER - COMPACT */
+  h2 {
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+    font-size: 16px !important;
+  }
+  
+  /* TABLES - NO GAPS */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    font-size: 12px !important;
+  }
+  
+  th, td {
+    padding: 4px 6px !important;
+    border: 1px solid #ddd !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* EXTRA SMALL - SUPER COMPACT */
+@media (max-width: 480px) {
+  .pro .main-content,
+  .pro .container .main-content {
+    padding: 6px 0 !important;
+  }
+  
+  .pro h1 {
+    font-size: 18px !important;
+    margin-bottom: 3px !important;
+  }
+  
+  .pro p {
+    font-size: 13px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .pro .filters {
+    gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .pro .filters input,
+  .pro .filters select {
+    min-width: 100px !important;
+    max-width: 48% !important;
+    height: 30px !important;
+    padding: 0 6px !important;
+    font-size: 13px !important;
+  }
+  
+  .pro .main-content > .btn,
+  .pro .main-content > .add-btn,
+  .pro .main-content > .add-btnn,
+  .pro .main-content > .add-item,
+  .pro .main-content > .restock-btn,
+  .pro .container .main-content > .btn,
+  .pro .container .main-content > .add-btn,
+  .pro .container .main-content > .add-btnn,
+  .pro .container .main-content > .add-item,
+  .pro .container .main-content > .restock-btn {
+    min-width: 95px !important;
+    max-width: 115px !important;
+    height: 30px !important;
+    padding: 5px 10px !important;
+    font-size: 13px !important;
+    margin: 0 4px 4px 0 !important;
+  }
+  
+  table {
+    font-size: 11px !important;
+  }
+  
+  th, td {
+    padding: 3px 4px !important;
   }
 }
 
