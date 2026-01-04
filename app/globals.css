@@ -1906,8 +1906,18 @@ body, html, #root, .app {
     max-height: 80vh !important;
     overflow-y: auto !important;
     margin: 20px auto !important;
-    padding: 20px !important;
-    border-radius: 12px !important;
+    
+    /* Reset inner content */
+    .modal-content {
+      padding: 15px !important;
+    }
+    
+    /* Make inputs full width */
+    input, select, textarea {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+    }
   }
 }
 /* Responsive font sizes */
