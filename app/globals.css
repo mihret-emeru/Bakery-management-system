@@ -3625,17 +3625,17 @@ body, html, #root, .app {
   
   .pro h1 {
     font-size: 18px !important;
-    margin-bottom: 3px !important;
+    margin-bottom: 0px !important;
   }
   
   .pro p {
     font-size: 13px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 0px !important;
   }
   
   .pro .filters {
     gap: 3px !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 0px !important;
   }
   
   .pro .filters input,
@@ -3675,34 +3675,7 @@ body, html, #root, .app {
 }
 
 
-  /* FIX GAPS — INVENTORY + PRODUCTS ONLY */
-@media (max-width: 768px) {
 
-  .pro.inventory .filters,
-  .pro.products .filters,
-  .pro.inventory .actions,
-  .pro.products .actions,
-  .pro.inventory .button-group,
-  .pro.products .button-group {
-    margin-bottom: 6px !important;
-    padding-bottom: 0 !important;
-    min-height: auto !important;
-  }
-
-  /* REMOVE EMPTY SPACE BETWEEN FILTERS & BUTTONS */
-  .pro.inventory .filters + *,
-  .pro.products .filters + * {
-    margin-top: 0 !important;
-  }
-
-  /* BUTTON ROW COMPACT */
-  .pro.inventory .add-btn,
-  .pro.inventory .restock-btn,
-  .pro.products .add-btn,
-  .pro.products .add-btnn {
-    margin-top: 4px !important;
-  }
-}
 
 
 
