@@ -3675,6 +3675,35 @@ body, html, #root, .app {
 }
 
 
+@media (max-width: 768px) {
+
+  /* FORCE REMOVE ALL VERTICAL GAPS BETWEEN BLOCKS */
+  .pro.inventory .main-content > * + *,
+  .pro.products .main-content > * + * {
+    margin-top: 6px !important;
+  }
+
+  /* KILL INVISIBLE SPACERS */
+  .pro.inventory .main-content div,
+  .pro.products .main-content div {
+    min-height: auto !important;
+  }
+
+  /* HEADINGS MUST NOT CREATE SPACE */
+  .pro.inventory h1,
+  .pro.inventory h2,
+  .pro.products h1,
+  .pro.products h2 {
+    margin: 0 0 6px 0 !important;
+    padding: 0 !important;
+  }
+
+  /* FILTERS + BUTTON AREA COMPACT */
+  .pro.inventory .filters,
+  .pro.products .filters {
+    margin-bottom: 4px !important;
+  }
+}
 
 
 
