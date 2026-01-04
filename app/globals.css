@@ -3676,10 +3676,14 @@ body, html, #root, .app {
 
 
 @media (max-width: 768px) {
-  .pro .order-divider {
-    display: none !important;
+  .pro .main-content > h1,
+  .pro .main-content > p,
+  .pro .main-content > .filters,
+  .pro .main-content > button {
+    margin-bottom: 6px !important;
   }
 }
+
 
 
 
