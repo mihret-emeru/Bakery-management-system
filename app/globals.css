@@ -3675,3 +3675,13 @@ body, html, #root, .app {
 }
 
 
+  @media (max-width: 768px) {
+  /* KILL ORDER DIVIDER GAP */
+  .pro .order-divider {
+    height: 6px !important;     /* or 0 if you want no line */
+    margin: 4px 0 !important;
+    padding: 0 !important;
+  }
+}
+
+
