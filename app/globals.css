@@ -3674,153 +3674,185 @@ body, html, #root, .app {
   }
 }
 
+/* NUCLEAR RESET - WILL FIX ALL GAPS */
+*[class*="pro"] *,
+*[class*="container"] *,
+*[class*="main-content"] *,
+*[class*="content"] * {
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
 
-
-/* NUCLEAR RESET FOR MOBILE GAPS */
-@media (max-width: 768px) {
-  /* NUCLEAR RESET - KILL ALL SPACING */
-  .pro,
-  .pro *,
-  .pro .container,
-  .pro .container *,
-  .pro .main-content,
-  .pro .main-content * {
+/* MOBILE NUCLEAR FIX */
+@media screen and (max-width: 768px) {
+  /* KILL ALL SPACING ON ALL ELEMENTS */
+  body *,
+  div *,
+  section *,
+  main *,
+  article *,
+  header *,
+  footer * {
     margin: 0 !important;
     padding: 0 !important;
-    box-sizing: border-box !important;
     max-width: 100% !important;
   }
   
-  /* SPECIFIC OVERRIDES */
-  .pro .container {
-    width: 100% !important;
-    padding: 0 !important;
+  /* SPECIFICALLY TARGET THE PROBLEM PAGES */
+  div[class*="pro"],
+  div[class*="container"],
+  div[class*="main-content"],
+  main[class*="main-content"],
+  .pro,
+  .pro * {
     margin: 0 !important;
-  }
-  
-  .pro .main-content {
-    padding: 8px 0 !important;
-    margin: 0 !important;
+    padding: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
   }
   
-  .pro .main-content > h1 {
-    margin: 8px 0 4px 0 !important;
+  /* HEADER NUCLEAR FIX */
+  h1, h2, h3, h4, h5, h6,
+  .pro h1,
+  .pro h2,
+  .pro h3,
+  [class*="title"],
+  [class*="header"] {
+    margin: 4px 0 2px 0 !important;
     padding: 0 !important;
-    font-size: 20px !important;
-    line-height: 1.2 !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    letter-spacing: -0.5px !important;
   }
   
-  .pro .main-content > p {
-    margin: 0 0 10px 0 !important;
+  /* PARAGRAPH NUCLEAR FIX */
+  p,
+  .pro p,
+  [class*="description"],
+  [class*="subtitle"] {
+    margin: 0 0 6px 0 !important;
     padding: 0 !important;
-    font-size: 14px !important;
-    line-height: 1.2 !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
     color: #666 !important;
   }
   
-  .pro .order-divider {
-    margin: 8px 0 !important;
+  /* FILTERS NUCLEAR FIX */
+  [class*="filter"],
+  .filters,
+  .filter-row,
+  .search-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 3px !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* INPUTS NUCLEAR FIX */
+  input,
+  select,
+  textarea,
+  [type="text"],
+  [type="search"],
+  [type="date"],
+  [class*="input"],
+  [class*="search"] {
+    flex: 1 !important;
+    min-width: 120px !important;
+    height: 32px !important;
+    padding: 0 8px !important;
+    margin: 0 !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
+  }
+  
+  /* BUTTONS NUCLEAR FIX */
+  button,
+  .btn,
+  [class*="btn"],
+  [class*="button"],
+  .add-btn,
+  .add-btnn,
+  .add-item,
+  .restock-btn {
+    all: unset !important;
+    display: inline-block !important;
+    min-width: 100px !important;
+    height: 32px !important;
+    padding: 6px 10px !important;
+    margin: 0 4px 4px 0 !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    cursor: pointer !important;
+    border-radius: 4px !important;
+    background-color: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
+  }
+  
+  /* SPECIFIC BUTTON COLORS */
+  [class*="add-btnn"],
+  [class*="primary"] {
+    background-color: #2196F3 !important;
+    border-color: #1976D2 !important;
+  }
+  
+  [class*="restock"],
+  [class*="green"] {
+    background-color: #4CAF50 !important;
+    border-color: #45a049 !important;
+  }
+  
+  /* FORCE BUTTONS TO STAY ON SAME LINE */
+  .filters + button,
+  .filters ~ button {
+    display: inline-block !important;
+    float: left !important;
+    clear: none !important;
+  }
+  
+  /* HR/DIVIDER NUCLEAR FIX */
+  hr,
+  [class*="divider"],
+  [class*="separator"] {
+    margin: 6px 0 !important;
     padding: 0 !important;
     height: 1px !important;
     background: #eee !important;
     border: none !important;
   }
   
-  .pro .filters {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 6px !important;
-    margin: 0 0 10px 0 !important;
-    padding: 0 !important;
+  /* TABLE NUCLEAR FIX */
+  table,
+  [class*="table"] {
     width: 100% !important;
-  }
-  
-  .pro .filters > * {
     margin: 0 !important;
     padding: 0 !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+    table-layout: fixed !important;
   }
   
-  .pro .main-content > .add-btn,
-  .pro .main-content > .add-btnn,
-  .pro .main-content > .add-item,
-  .pro .main-content > .restock-btn {
-    display: inline-block !important;
-    min-width: 120px !important;
-    max-width: 140px !important;
-    height: 36px !important;
-    padding: 8px 12px !important;
-    margin: 0 6px 6px 0 !important;
-    font-size: 14px !important;
-    font-weight: 600 !important;
-    line-height: 1.2 !important;
-    border-radius: 6px !important;
-    border: 1px solid !important;
-    cursor: pointer !important;
+  th, td,
+  [class*="th"],
+  [class*="td"] {
+    margin: 0 !important;
+    padding: 3px 4px !important;
+    border: 1px solid #ddd !important;
     white-space: nowrap !important;
-  }
-  
-  .pro .add-btn {
-    background: #ff9800 !important;
-    border-color: #e68900 !important;
-    color: white !important;
-  }
-  
-  .pro .add-btnn {
-    background: #2196F3 !important;
-    border-color: #1976D2 !important;
-    color: white !important;
-  }
-  
-  .pro .add-item {
-    background: #ff9800 !important;
-    border-color: #e68900 !important;
-    color: white !important;
-  }
-  
-  .pro .restock-btn {
-    background: #4CAF50 !important;
-    border-color: #45a049 !important;
-    color: white !important;
-  }
-  
-  /* FORCE NO GAPS BETWEEN BUTTONS */
-  .pro .main-content > .add-btn + .add-btnn,
-  .pro .main-content > .add-item + .restock-btn {
-    margin-left: 0 !important;
-  }
-}
-
-/* EXTRA SMALL - EVEN MORE COMPACT */
-@media (max-width: 480px) {
-  .pro .main-content {
-    padding: 6px 0 !important;
-  }
-  
-  .pro .main-content > h1 {
-    font-size: 18px !important;
-    margin: 6px 0 3px 0 !important;
-  }
-  
-  .pro .main-content > p {
-    font-size: 13px !important;
-    margin-bottom: 8px !important;
-  }
-  
-  .pro .filters {
-    gap: 4px !important;
-    margin-bottom: 8px !important;
-  }
-  
-  .pro .main-content > .add-btn,
-  .pro .main-content > .add-btnn,
-  .pro .main-content > .add-item,
-  .pro .main-content > .restock-btn {
-    min-width: 100px !important;
-    max-width: 130px !important;
-    height: 34px !important;
-    padding: 6px 10px !important;
-    font-size: 13px !important;
-    margin: 0 4px 4px 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1 !important;
   }
 }
