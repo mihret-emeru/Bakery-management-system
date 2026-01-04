@@ -3675,15 +3675,38 @@ body, html, #root, .app {
 }
 
 
+  /* FIX GAPS — INVENTORY + PRODUCTS ONLY */
 @media (max-width: 768px) {
-  .pro .main-content > h1,
-  .pro .main-content > p,
-  .pro .main-content > .filters,
-  .pro .main-content > button {
+
+  .pro.inventory .filters,
+  .pro.products .filters,
+  .pro.inventory .actions,
+  .pro.products .actions,
+  .pro.inventory .button-group,
+  .pro.products .button-group {
     margin-bottom: 6px !important;
+    padding-bottom: 0 !important;
+    min-height: auto !important;
+  }
+
+  /* REMOVE EMPTY SPACE BETWEEN FILTERS & BUTTONS */
+  .pro.inventory .filters + *,
+  .pro.products .filters + * {
+    margin-top: 0 !important;
+  }
+
+  /* BUTTON ROW COMPACT */
+  .pro.inventory .add-btn,
+  .pro.inventory .restock-btn,
+  .pro.products .add-btn,
+  .pro.products .add-btnn {
+    margin-top: 4px !important;
   }
 }
 
+
+
+  
 
 
 
