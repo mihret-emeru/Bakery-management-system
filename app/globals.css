@@ -3674,64 +3674,54 @@ body, html, #root, .app {
   }
 }
 
-/* NUCLEAR RESET - WILL FIX ALL GAPS */
-*[class*="pro"] *,
-*[class*="container"] *,
-*[class*="main-content"] *,
-*[class*="content"] * {
-  margin: 0 !important;
-  padding: 0 !important;
-  box-sizing: border-box !important;
-}
 
-/* MOBILE NUCLEAR FIX */
-@media screen and (max-width: 768px) {
-  /* KILL ALL SPACING ON ALL ELEMENTS */
-  body *,
-  div *,
-  section *,
-  main *,
-  article *,
-  header *,
-  footer * {
-    margin: 0 !important;
-    padding: 0 !important;
-    max-width: 100% !important;
-  }
-  
-  /* SPECIFICALLY TARGET THE PROBLEM PAGES */
-  div[class*="pro"],
-  div[class*="container"],
-  div[class*="main-content"],
-  main[class*="main-content"],
-  .pro,
-  .pro * {
+/* ONLY TARGETS INVENTORY & PRODUCT PAGES - NUCLEAR FIX */
+@media (max-width: 768px) {
+  /* PAGE CONTAINER FORCE RESET */
+  div.pro.inventory, 
+  div.pro.products,
+  .pro.inventory,
+  .pro.products,
+  [class*="pro inventory"],
+  [class*="pro products"] {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
-    min-width: 0 !important;
   }
   
-  /* HEADER NUCLEAR FIX */
-  h1, h2, h3, h4, h5, h6,
-  .pro h1,
-  .pro h2,
-  .pro h3,
-  [class*="title"],
-  [class*="header"] {
+  /* SPECIFIC CONTAINER TARGETING */
+  .pro.inventory .container,
+  .pro.products .container,
+  div.pro.inventory > .container,
+  div.pro.products > .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* MAIN CONTENT NUCLEAR RESET */
+  .pro.inventory .main-content,
+  .pro.products .main-content,
+  .pro.inventory > .container > .main-content,
+  .pro.products > .container > .main-content {
+    margin: 0 !important;
+    padding: 8px 0 !important;
+    width: 100% !important;
+  }
+  
+  /* HEADER SECTION - FORCE COMPACT */
+  .pro.inventory .main-content > h1:first-of-type,
+  .pro.products .main-content > h1:first-of-type {
     margin: 4px 0 2px 0 !important;
     padding: 0 !important;
     font-size: 18px !important;
     line-height: 1 !important;
-    letter-spacing: -0.5px !important;
   }
   
-  /* PARAGRAPH NUCLEAR FIX */
-  p,
-  .pro p,
-  [class*="description"],
-  [class*="subtitle"] {
+  .pro.inventory .main-content > p:first-of-type,
+  .pro.products .main-content > p:first-of-type {
     margin: 0 0 6px 0 !important;
     padding: 0 !important;
     font-size: 13px !important;
@@ -3739,53 +3729,51 @@ body, html, #root, .app {
     color: #666 !important;
   }
   
-  /* FILTERS NUCLEAR FIX */
-  [class*="filter"],
-  .filters,
-  .filter-row,
-  .search-bar {
+  /* FILTERS SECTION - FORCE TIGHT */
+  .pro.inventory .filters,
+  .pro.products .filters,
+  .pro.inventory .main-content > .filters,
+  .pro.products .main-content > .filters {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 3px !important;
+    gap: 4px !important;
     margin: 0 0 8px 0 !important;
     padding: 0 !important;
     width: 100% !important;
   }
   
-  /* INPUTS NUCLEAR FIX */
-  input,
-  select,
-  textarea,
-  [type="text"],
-  [type="search"],
-  [type="date"],
-  [class*="input"],
-  [class*="search"] {
+  /* INPUTS AND SELECTS IN FILTERS */
+  .pro.inventory .filters input,
+  .pro.products .filters input,
+  .pro.inventory .filters select,
+  .pro.products .filters select {
     flex: 1 !important;
     min-width: 120px !important;
-    height: 32px !important;
+    height: 34px !important;
     padding: 0 8px !important;
     margin: 0 !important;
-    border: 1px solid #ccc !important;
+    border: 1px solid #ddd !important;
     border-radius: 4px !important;
     font-size: 13px !important;
-    line-height: 1 !important;
   }
   
-  /* BUTTONS NUCLEAR FIX */
-  button,
-  .btn,
-  [class*="btn"],
-  [class*="button"],
-  .add-btn,
-  .add-btnn,
-  .add-item,
-  .restock-btn {
+  /* SPECIFIC DATE INPUT */
+  .pro.inventory .filters input[type="date"],
+  .pro.products .filters input[type="date"] {
+    min-width: 140px !important;
+  }
+  
+  /* BUTTONS - NO GAPS, SAME LINE */
+  .pro.inventory .main-content > .add-item,
+  .pro.inventory .main-content > .restock-btn,
+  .pro.products .main-content > .add-btn,
+  .pro.products .main-content > .add-btnn {
     all: unset !important;
     display: inline-block !important;
     min-width: 100px !important;
-    height: 32px !important;
-    padding: 6px 10px !important;
+    max-width: 130px !important;
+    height: 34px !important;
+    padding: 7px 10px !important;
     margin: 0 4px 4px 0 !important;
     font-size: 13px !important;
     font-weight: 600 !important;
@@ -3794,65 +3782,124 @@ body, html, #root, .app {
     white-space: nowrap !important;
     cursor: pointer !important;
     border-radius: 4px !important;
+  }
+  
+  /* BUTTON SPECIFIC COLORS */
+  /* Inventory buttons */
+  .pro.inventory .add-item {
     background-color: #ff9800 !important;
     color: white !important;
     border: 1px solid #e68900 !important;
   }
   
-  /* SPECIFIC BUTTON COLORS */
-  [class*="add-btnn"],
-  [class*="primary"] {
-    background-color: #2196F3 !important;
-    border-color: #1976D2 !important;
-  }
-  
-  [class*="restock"],
-  [class*="green"] {
+  .pro.inventory .restock-btn {
     background-color: #4CAF50 !important;
-    border-color: #45a049 !important;
+    color: white !important;
+    border: 1px solid #45a049 !important;
   }
   
-  /* FORCE BUTTONS TO STAY ON SAME LINE */
-  .filters + button,
-  .filters ~ button {
-    display: inline-block !important;
-    float: left !important;
-    clear: none !important;
+  /* Products buttons */
+  .pro.products .add-btn {
+    background-color: #ff9800 !important;
+    color: white !important;
+    border: 1px solid #e68900 !important;
   }
   
-  /* HR/DIVIDER NUCLEAR FIX */
-  hr,
-  [class*="divider"],
-  [class*="separator"] {
-    margin: 6px 0 !important;
+  .pro.products .add-btnn {
+    background-color: #2196F3 !important;
+    color: white !important;
+    border: 1px solid #1976D2 !important;
+  }
+  
+  /* HR/DIVIDER - THIN */
+  .pro.inventory .order-divider,
+  .pro.products .order-divider,
+  .pro.inventory .main-content > hr,
+  .pro.products .main-content > hr {
+    margin: 8px 0 !important;
     padding: 0 !important;
     height: 1px !important;
     background: #eee !important;
     border: none !important;
   }
   
-  /* TABLE NUCLEAR FIX */
-  table,
-  [class*="table"] {
-    width: 100% !important;
-    margin: 0 !important;
+  /* TABLE SECTION - FORCE COMPACT */
+  .pro.inventory .main-content > h2:contains("Stock"),
+  .pro.products .main-content > h2:contains("Recent"),
+  .pro.inventory .main-content > h2,
+  .pro.products .main-content > h2 {
+    margin: 0 0 6px 0 !important;
     padding: 0 !important;
-    border-collapse: collapse !important;
-    border-spacing: 0 !important;
-    font-size: 11px !important;
+    font-size: 15px !important;
     line-height: 1 !important;
-    table-layout: fixed !important;
   }
   
-  th, td,
-  [class*="th"],
-  [class*="td"] {
+  /* TABLES - ULTRA COMPACT */
+  .pro.inventory table,
+  .pro.products table,
+  .pro.inventory .main-content table,
+  .pro.products .main-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
     margin: 0 !important;
-    padding: 3px 4px !important;
+    font-size: 11px !important;
+    line-height: 1 !important;
+  }
+  
+  .pro.inventory table th,
+  .pro.inventory table td,
+  .pro.products table th,
+  .pro.products table td {
+    padding: 4px 6px !important;
     border: 1px solid #ddd !important;
     white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    line-height: 1 !important;
+  }
+}
+
+/* EXTRA SMALL SCREENS - EVEN MORE COMPACT */
+@media (max-width: 480px) {
+  .pro.inventory .main-content,
+  .pro.products .main-content {
+    padding: 6px 0 !important;
+  }
+  
+  .pro.inventory .filters,
+  .pro.products .filters {
+    gap: 3px !important;
+    margin-bottom: 6px !important;
+  }
+  
+  .pro.inventory .filters input,
+  .pro.products .filters input,
+  .pro.inventory .filters select,
+  .pro.products .filters select {
+    min-width: 100px !important;
+    height: 32px !important;
+    padding: 0 6px !important;
+    font-size: 12px !important;
+  }
+  
+  .pro.inventory .main-content > .add-item,
+  .pro.inventory .main-content > .restock-btn,
+  .pro.products .main-content > .add-btn,
+  .pro.products .main-content > .add-btnn {
+    min-width: 90px !important;
+    max-width: 120px !important;
+    height: 32px !important;
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+    margin: 0 3px 3px 0 !important;
+  }
+  
+  .pro.inventory table,
+  .pro.products table {
+    font-size: 10px !important;
+  }
+  
+  .pro.inventory table th,
+  .pro.inventory table td,
+  .pro.products table th,
+  .pro.products table td {
+    padding: 3px 4px !important;
   }
 }
