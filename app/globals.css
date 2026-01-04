@@ -3674,16 +3674,11 @@ body, html, #root, .app {
   }
 }
 
-
 /* ONLY TARGETS INVENTORY & PRODUCT PAGES - NUCLEAR FIX */
 @media (max-width: 768px) {
   /* PAGE CONTAINER FORCE RESET */
-  div.pro.inventory, 
-  div.pro.products,
-  .pro.inventory,
-  .pro.products,
-  [class*="pro inventory"],
-  [class*="pro products"] {
+  .pro.inventory, 
+  .pro.products {
     margin: 0 !important;
     padding: 0 !important;
     width: 100% !important;
@@ -3692,9 +3687,7 @@ body, html, #root, .app {
   
   /* SPECIFIC CONTAINER TARGETING */
   .pro.inventory .container,
-  .pro.products .container,
-  div.pro.inventory > .container,
-  div.pro.products > .container {
+  .pro.products .container {
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
@@ -3703,25 +3696,23 @@ body, html, #root, .app {
   
   /* MAIN CONTENT NUCLEAR RESET */
   .pro.inventory .main-content,
-  .pro.products .main-content,
-  .pro.inventory > .container > .main-content,
-  .pro.products > .container > .main-content {
+  .pro.products .main-content {
     margin: 0 !important;
     padding: 8px 0 !important;
     width: 100% !important;
   }
   
   /* HEADER SECTION - FORCE COMPACT */
-  .pro.inventory .main-content > h1:first-of-type,
-  .pro.products .main-content > h1:first-of-type {
+  .pro.inventory .main-content > h1,
+  .pro.products .main-content > h1 {
     margin: 4px 0 2px 0 !important;
     padding: 0 !important;
     font-size: 18px !important;
     line-height: 1 !important;
   }
   
-  .pro.inventory .main-content > p:first-of-type,
-  .pro.products .main-content > p:first-of-type {
+  .pro.inventory .main-content > p,
+  .pro.products .main-content > p {
     margin: 0 0 6px 0 !important;
     padding: 0 !important;
     font-size: 13px !important;
@@ -3731,9 +3722,7 @@ body, html, #root, .app {
   
   /* FILTERS SECTION - FORCE TIGHT */
   .pro.inventory .filters,
-  .pro.products .filters,
-  .pro.inventory .main-content > .filters,
-  .pro.products .main-content > .filters {
+  .pro.products .filters {
     display: flex !important;
     flex-wrap: wrap !important;
     gap: 4px !important;
@@ -3813,9 +3802,7 @@ body, html, #root, .app {
   
   /* HR/DIVIDER - THIN */
   .pro.inventory .order-divider,
-  .pro.products .order-divider,
-  .pro.inventory .main-content > hr,
-  .pro.products .main-content > hr {
+  .pro.products .order-divider {
     margin: 8px 0 !important;
     padding: 0 !important;
     height: 1px !important;
@@ -3823,9 +3810,7 @@ body, html, #root, .app {
     border: none !important;
   }
   
-  /* TABLE SECTION - FORCE COMPACT */
-  .pro.inventory .main-content > h2:contains("Stock"),
-  .pro.products .main-content > h2:contains("Recent"),
+  /* TABLE HEADER - FORCE COMPACT */
   .pro.inventory .main-content > h2,
   .pro.products .main-content > h2 {
     margin: 0 0 6px 0 !important;
@@ -3836,9 +3821,7 @@ body, html, #root, .app {
   
   /* TABLES - ULTRA COMPACT */
   .pro.inventory table,
-  .pro.products table,
-  .pro.inventory .main-content table,
-  .pro.products .main-content table {
+  .pro.products table {
     width: 100% !important;
     border-collapse: collapse !important;
     margin: 0 !important;
