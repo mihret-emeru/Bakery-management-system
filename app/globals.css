@@ -1408,6 +1408,8 @@ table td button:hover {
   max-width: 400px;
   padding: 20px;
   border-radius: 12px;
+   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+   z-index: 9999; /* important */
 }
 
 /* Mobile layout */
@@ -1482,13 +1484,13 @@ table td button:hover {
 */
 
 
-/* Base styles - for desktop/large screens 
+/* Base styles - for desktop/large screens*/ 
 .app-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
 }
-*/
+
 .sidebar {
   width: 250px; /* Fixed width for desktop */
   min-width: 250px;
