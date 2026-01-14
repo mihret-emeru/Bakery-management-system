@@ -1482,13 +1482,13 @@ table td button:hover {
 */
 
 
-/* Base styles - for desktop/large screens */
+/* Base styles - for desktop/large screens 
 .app-container {
   display: flex;
   width: 100%;
   min-height: 100vh;
 }
-
+*/
 .sidebar {
   width: 250px; /* Fixed width for desktop */
   min-width: 250px;
